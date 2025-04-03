@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            background-image: url('images/bg3.avif');
+            background-size: cover; /* Cover the entire area */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-position: center; /* Center the image */
+        }
+        
+        /* Top Bar */
+        .top-bar {
+            background-color: rgba(46, 125, 50, 0.8); /* Slightly transparent for better visibility */
+            color: white;
+            text-align: center;
+            padding: 8px;
+            border-radius: 0 0 20px 20px;
+        }
+        nav ul li a:hover {
+            color: white;
+            background-color: #66bb6a; /* Light green on hover */
+        }
+        
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 15px 50px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            margin: 10px;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 80px;
+            width: auto;
+        }
+        
+        .logo-text {
+            font-size: 24px; /* Smaller font size */
+            font-weight: 600;
+            color: #ff9800; /* Orange for the main name */
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px; /* Reduced gap */
+        }
+        nav ul li {
+            position: relative;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #ff9800; /* Orange for navigation links */
+            font-size: 16px; /* Smaller font size */
+            font-weight: 400;
+            transition: color 0.3s ease;
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+        
+        nav ul li a:hover {
+            color: #f57c00;
+            background-color: #fbe9e7;
+        }
+        
+        
+        .product-card {
+            background-color: rgb(233, 229, 223);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        .product-card img {
+            width: 100%;
+            height: 16rem;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">Your Journey to Mental Clarity Begins Here</div>
+        <nav>
+            <div class="nav-left">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Mind Oasis Logo">
+                </div>
+                <div class="logo-text">Mind Oasis</div>
+            </div>
+            <ul>
+                <li><a href="main.html">Home</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="write.html">Your Thoughts</a></li>
+                <li><a href="yoga.html">Videos</a></li>
+                <li><a href="#">Podcast</a></li>
+                <li><a href="#">Contacts</a></li>
+                <li><a href="#">More</a></li>
+            </ul>
+            
+        </nav>
+    </header>
+
+    <section class="py-12">
+        <div class="container mx-auto px-4">  
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6"> 
+                <div class="product-card">
+                    <a href="https://youtu.be/sfSDQRdIvTc?si=9Zz7AAOV_KtaV6NX">
+                        <img src="yoga/y1.webp" alt="Books" width="200" height="300">
+                    </a>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Reduce Overthinking & Stress | Guided Meditation</h3>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <a href="https://youtu.be/MSdqEhO1egc?si=vczFd0wMuAU7xI4o">
+                        <img src="yoga/y6.webp" alt="Journal" width="200" height="200">
+                    </a>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Yoga Nidra for Peace and Relaxation</h3>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <a href="https://youtu.be/FjFFasD3kr0?si=qVwPfohbba6LUWWW">
+                        <img src="yoga/y5.avif" alt="Accessories" width="100" height="100">
+                    </a>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Seated Yoga Stretches for Headaches, Anxiety & Tension</h3>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <a href="https://youtu.be/SuuX7YKnfuc?si=IlVMTeuwXHkLIs65">
+                        <img src="yoga/y3.png" alt="Supplements" width="100" height="100">
+                    </a>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Feel More Optimistic (Ten Minute Guided Meditation)</h3>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <a href="https://youtu.be/TGdNZTl86Qs?si=STJOmUuZ8YOJx_Zc">
+                        <img src="yoga/y4.jpg" alt="Books" width="200" height="300">
+                    </a>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Yoga For Stress Relief</h3>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <a href="https://youtu.be/DYGfwPppgO4?si=bAqb_qN0mMebg4OQ">
+                        <img src="yoga/y8.jpg" alt="Journal" width="100" height="100">
+                    </a>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">20 MIN FULL BODY STRETCH - for Stress Relief & Flexibility</h3>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <a href="https://youtu.be/6CueZ4zujMk?si=KTmhXbUm76A6d-Gj">
+                        <img src="yoga/y7 (1).jpg" alt="Accessories" width="100" height="100">
+                    </a>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">20 Min BEDTIME YOGA | Full Body Stretch | Tension Relief, Relaxation</h3>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <a href="https://youtu.be/x2wBS6sjpjM?si=CuaOzqyOVgQ9j8CG">
+                        <img src="yoga/media.webp" alt="Accessories" width="100" height="100">
+                    </a>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Daily MEDITATION under 10-Minutes</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Disorder Survey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #e8f5e9; /* Light green background */
+            background-image: url('images/bg3.avif'); /* Add your background image here */
+            background-size: cover; /* Cover the entire page */
+            background-position: center; /* Center the background image */
+            height: 100vh; /* Full height */
+            display: flex;
+            flex-direction: column;
+        }
+        .top-bar {
+            background-color: rgba(46, 125, 50, 0.8); /* Dark green with transparency */
+            color: white;
+            text-align: center;
+            padding: 8px;
+            border-radius: 0 0 20px 20px;
+            font-size: 18px; /* Smaller text size */
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.9); /* White with transparency */
+            padding: 15px 50px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            margin: 10px;
+        }
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo img {
+            height: 70px; /* Slightly smaller logo */
+            width: auto;
+        }
+        .logo-text {
+            font-size: 24px; /* Smaller font size */
+            font-weight: 600;
+            color: #ff9800; /* Orange for the main name */
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px; /* Reduced gap */
+        }
+        nav ul li {
+            position: relative;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #ff9800; /* Orange for navigation links */
+            font-size: 16px; /* Smaller font size */
+            font-weight: 400;
+            transition: color 0.3s ease;
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+        nav ul li a:hover {
+            color: white;
+            background-color: #66bb6a; /* Light green on hover */
+        }
+        .section {
+            background-color: rgba(255, 255, 255, 0.9); /* White with transparency */
+            border-radius: 20px;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .section h2 {
+            color: #ff9800; /* Orange for section headings */
+            font-size: 28px; /* Smaller heading size */
+            margin-bottom: 10px;
+        }
+        .section p {
+            color: #333;
+            font-size: 16px; /* Smaller paragraph size */
+            line-height: 1.4; /* Adjusted line height */
+            margin-bottom: 20px;
+        }
+        .quiz-questions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px; /* Space between questions */
+            text-align: left; /* Align text to the left */
+            width: 100%; /* Full width */
+        }
+        .quiz-question {
+            width: 100%; /* Full width for questions */
+        }
+        .quiz-question label {
+            display: block; /* Block display for labels */
+            margin-bottom: 5px; /* Space between label and options */
+            font-weight: bold; /* Bold for question labels */
+        }
+        .quiz-options {
+            display: flex;
+            flex-direction: column; /* Stack options vertically */
+            gap: 5px; /* Space between options */
+        }
+        .quiz-options input[type="radio"] {
+            margin-right: 10px; /* Space between radio button and label */
+        }
+        button {
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            margin: auto;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #1b5e20;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #d32f2f;
+            display: none; /* Hidden by default */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">Your Journey to Mental Clarity Begins Here</div>
+        <nav>
+            <div class="nav-left">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Mind Oasis Logo">
+                </div>
+                <div class="logo-text">Mind Oasis</div>
+            </div>
+            <ul>
+                <li><a href="main.html">Home</a></li>
+                    <li><a href="product.html">Products</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="write.html">Your Thoughts</a></li>
+                    <li><a href="yoga.html">Videos</a></li>
+                    <li><a href="#">Podcast</a></li>
+                    <li><a href="#">Contacts</a></li>
+                    <li><a href="#">More</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="section">
+        <h2>Bipolar Disorder Survey</h2>
+        <p>Take our survey to learn more about your mood-related difficulties and identify any potential concerns.</p>
+        
+        <form id="moodForm">
+            <div class="quiz-questions">
+                <div class="quiz-question">
+                    <label>1. How often do you experience extreme mood swings, shifting between high energy and deep sadness?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q1" value="1"> Never</label>
+                        <label><input type="radio" name="q1" value="2"> Rarely</label>
+                        <label><input type="radio" name="q1" value="3"> Sometimes</label>
+                        <label><input type="radio" name="q1" value="4"> Often</label>
+                        <label><input type="radio" name="q1" value="5"> Very Often</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <label>2. Have you ever felt an unusually high level of energy, where you needed little to no sleep but still felt energized?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q2" value="1"> Never</label>
+                        <label><input type="radio" name="q2" value="2"> Rarely</label>
+                        <label><input type="radio" name="q2" value="3"> Sometimes</label>
+                        <label><input type="radio" name="q2" value="4"> Often</label>
+                        <label><input type="radio" name="q2" value="5"> Very Often</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <label>3. Do you experience periods where you talk much faster than usual, with racing thoughts?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q3" value="1"> Never</label>
+                        <label><input type="radio" name="q3" value="2"> Rarely</label>
+                        <label><input type="radio" name="q3" value="3"> Sometimes</label>
+                        <label><input type="radio" name="q3" value="4"> Often</label>
+                        <label><input type="radio" name="q3" value="5"> Very Often</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <label>4. How often do you engage in impulsive behaviors, such as spending large amounts of money, reckless driving, or risky decisions?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q4" value="1"> Never</label>
+                        <label><input type="radio" name="q4" value="2"> Rarely</label>
+                        <label><input type="radio" name="q4" value="3"> Sometimes</label>
+                        <label><input type="radio" name="q4" value="4"> Often</label>
+                        <label><input type="radio" name="q4" value="5"> Very Often</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <label>5. Have you experienced prolonged periods of deep sadness, hopelessness, or lack of motivation?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q5" value="1"> Never</label>
+                        <label><input type="radio" name="q5" value="2"> Rarely</label>
+                        <label><input type="radio" name="q5" value="3"> Sometimes</label>
+                        <label><input type="radio" name="q5" value="4"> Often</label>
+                        <label><input type="radio" name="q5" value="5"> Very Often</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <label>6. During low moods, do you struggle to get out of bed, lose interest in activities, or feel exhausted without reason?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q6" value="1"> Never</label>
+                        <label><input type="radio" name="q6" value="2"> Rarely</label>
+                        <label><input type="radio" name="q6" value="3"> Sometimes</label>
+                        <label><input type="radio" name="q6" value="4"> Often</label>
+                        <label><input type="radio" name="q6" value="5"> Very Often</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <label>7. Do you have periods where you feel overly confident or have an exaggerated sense of your abilities?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q7" value="1"> Never</label>
+                        <label><input type="radio" name="q7" value="2"> Rarely</label>
+                        <label><input type="radio" name="q7" value="3"> Sometimes</label>
+                        <label><input type="radio" name="q7" value="4"> Often</label>
+                        <label><input type="radio" name="q7" value="5"> Very Often</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <label>8. How often do your mood swings interfere with your work, school, or relationships?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q8" value="1"> Never</label>
+                        <label><input type="radio" name="q8" value="2"> Rarely</label>
+                        <label><input type="radio" name="q8" value="3"> Sometimes</label>
+                        <label><input type="radio" name="q8" value="4"> Often</label>
+                        <label><input type="radio" name="q8" value="5"> Very Often</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <label>9. Have you ever had thoughts of self-harm, suicide, or felt like life is not worth living?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q9" value="1"> Never</label>
+                        <label><input type="radio" name="q9" value="2"> Rarely</label>
+                        <label><input type="radio" name="q9" value="3"> Sometimes</label>
+                        <label><input type="radio" name="q9" value="4"> Often</label>
+                        <label><input type="radio" name="q9" value="5"> Very Often</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <label>10. Has anyone close to you ever commented on your extreme mood changes or unusual behaviors?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q10" value="1"> Never</label>
+                        <label><input type="radio" name="q10" value="2"> Rarely</label>
+                        <label><input type="radio" name="q10" value="3"> Sometimes</label>
+                        <label><input type="radio" name="q10" value="4"> Often</label>
+                        <label><input type="radio" name="q10" value="5"> Very Often</label>
+                    </div>
+                </div>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        
+        <div class="result" id="result"></div>
+    </section>
+
+    <script>
+        document.getElementById("moodForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let responses = document.querySelectorAll("input[type=radio]:checked");
+            
+            // Check if at least one response is selected
+            if (responses.length === 0) {
+                alert("Please select at least one option before submitting.");
+                return; // Exit the function if no options are selected
+            }
+    
+            let score = 0;
+            
+            responses.forEach(response => {
+                score += parseInt(response.value);
+            });
+            
+            let resultText = "";
+            if (score <= 10) {
+                resultText = "You experience minimal mood-related difficulties.";
+            } else if (score <= 20) {
+                resultText = "You may have mild mood-related difficulties.";
+            } else if (score <= 30) {
+                resultText = "You may have moderate mood-related difficulties.";
+            } else {
+                resultText = "You may have severe mood-related difficulties. Consider reaching out for support.";
+            }
+            
+            document.getElementById("result").innerHTML = `<h3>Your Results:</h3><p>${resultText}</p>`;
+            document.getElementById("result").style.display = 'block'; // Show the result
+        });
+    </script>
+</body>
+</html>

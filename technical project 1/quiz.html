@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Oasis - Mental Health Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #e8f5e9; /* Light green background */
+            background-image: url('images/bg3.avif'); /* Add your background image here */
+            background-size: cover; /* Cover the entire page */
+            background-position: center; /* Center the background image */
+            height: 100vh; /* Full height */
+            display: flex;
+            flex-direction: column;
+        }
+        .top-bar {
+            background-color: rgba(46, 125, 50, 0.8); /* Dark green with transparency */
+            color: white;
+            text-align: center;
+            padding: 8px;
+            border-radius: 0 0 20px 20px;
+            font-size: 14px; /* Smaller text size */
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.9); /* White with transparency */
+            padding: 15px 50px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            margin: 10px;
+        }
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo img {
+            height: 70px; /* Slightly smaller logo */
+            width: auto;
+        }
+        .logo-text {
+            font-size: 24px; /* Smaller font size */
+            font-weight: 600;
+            color: #ff9800; /* Orange for the main name */
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px; /* Reduced gap */
+        }
+        nav ul li {
+            position: relative;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #ff9800; /* Orange for navigation links */
+            font-size: 16px; /* Smaller font size */
+            font-weight: 400;
+            transition: color 0.3s ease;
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+        nav ul li a:hover {
+            color: white;
+            background-color: #66bb6a; /* Light green on hover */
+        }
+        .section {
+            background-color: rgba(255, 255, 255, 0.9); /* White with transparency */
+            border-radius: 20px;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .section h2 {
+            color: #ff9800; /* Orange for section headings */
+            font-size: 28px; /* Smaller heading size */
+            margin-bottom: 10px;
+        }
+        .section p {
+            color: #333;
+            font-size: 16px; /* Smaller paragraph size */
+            line-height: 1.4; /* Adjusted line height */
+            margin-bottom: 20px;
+        }
+        .quiz-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px; /* Reduced space between buttons */
+            margin-top: 15px;
+        }
+        .quiz-buttons button {
+            padding: 8px 16px; /* Smaller padding */
+            font-size: 14px; /* Smaller button text size */
+            border: 2px solid #66bb6a; /* Light green */
+            background-color: white;
+            color: #388e3c; /* Medium green */
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 100px; /* Minimum width for buttons */
+        }
+        .quiz-buttons button:hover {
+            background-color: #66bb6a; /* Light green */
+            color: white;
+        }
+        .additional-info {
+            margin-top: 20px;
+            font-size: 14px; /* Smaller font size for additional info */
+            color: #555; /* Darker gray for better readability */
+            line-height: 1.5; /* Improved line height */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">Your Journey to Mental Clarity Begins Here</div>
+        <nav>
+            <div class="nav-left">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Mind Oasis Logo">
+                </div>
+                <div class="logo-text">Mind Oasis</div>
+            </div>
+            <ul>
+                <li><a href="main.html">Home</a></li>
+                    <li><a href="product.html">Products</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="write.html">Your Thoughts</a></li>
+                    <li><a href="yoga.html">Videos</a></li>
+                    <li><a href="#">Podcast</a></li>
+                    <li><a href="#">Contacts</a></li>
+                    <li><a href="#">More</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="section">
+        <h2>Mental Health Quiz</h2>
+        <p>Take our quiz to learn more about your mental health and identify any potential concerns.</p>
+        <div class="quiz-buttons">
+            <button onclick="window.location.href='anxiety.html'">Anxiety</button>
+            <button onclick="window.location.href='depression.html'">Depression</button>
+            <button onclick="window.location.href='ocd.html'">OCD</button>
+            <button onclick="window.location.href='adhd.html'">ADHD</button>
+            <button onclick="window.location.href='ptsd.html'">PTSD</button>
+            <button onclick="window.location.href='bipolar.html'">Bipolar Disorder</button>
+        </div>
+        <div class="additional-info">
+            <p>After completing the quiz, you will receive personalized insights based on your responses.</p>
+        </div>
+    </section>
+
+    <script>
+        // You can add any additional JavaScript functionality here if needed
+    </script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Oasis - Just Breathe & Relax</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #e8f5e9; /* Light green background */
+        }
+        .top-bar {
+            background-color: #2e7d32; /* Dark green */
+            color: white;
+            text-align: center;
+            padding: 8px;
+            border-radius: 0 0 20px 20px;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 15px 50px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            margin: 10px;
+        }
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo img {
+            height: 80px;
+            width: auto;
+        }
+        .logo-text {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ff9800; /* Orange for the main name */
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            position: relative; /* Position relative for dropdown */
+        }
+        nav ul li {
+            position: relative; /* Position relative for dropdown */
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #ff9800; /* Orange for navigation links */
+            font-size: 16px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+        nav ul li a:hover {
+            color: white;
+            background-color: #66bb6a; /* Light green on hover */
+        }
+        .hero {
+            position: relative;
+            background: url('images/homeimg.jpg') no-repeat center center/cover;
+            height: 500px;
+            border-radius: 20px;
+            margin: 10px;
+            overflow: hidden;
+        }
+        .hero .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+        }
+        .section {
+            background-color: white;
+            border-radius: 20px;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .section h2 {
+            color: #ff9800; /* Orange for section headings */
+        }
+        .section p {
+            color: #333;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .feelings-section {
+            background-color: white;
+            border-radius: 20px;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .feelings-section h2 {
+            font-size: 24px;
+            color: #ff9800; /* Orange for feelings section heading */
+        }
+        .feelings-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .feelings-buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: 2px solid #66bb6a; /* Light green */
+            background-color: white;
+            color: #388e3c; /* Medium green */
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .feelings-buttons button:hover {
+            background-color: #66bb6a; /* Light green */
+            color: white;
+        }
+        #activity-suggestion {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2e7d32; /* Dark green */
+        }
+        .testimonial-carousel {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            margin: 20px 0;
+        }
+        .testimonial {
+            min-width: 300px;
+            margin: 0 10px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .testimonial:hover {
+            transform: scale(1.05);
+        }
+        .cta-button {
+            background-color: #388e3c; /* Medium green */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #2e7d32; /* Dark green */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">Your Journey to Mental Clarity Begins Here</div>
+        <nav>
+            <div class="nav-left">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Mind Oasis Logo">
+                </div>
+                <div class="logo-text">Mind Oasis</div>
+            </div>
+            <ul>
+                <li><a href="main.html">Home</a></li>
+                    <li><a href="product.html">Products</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="write.html">Your Thoughts</a></li>
+                    <li><a href="yoga.html">Videos</a></li>
+                    <li><a href="#">Podcast</a></li>
+                    <li><a href="#">Contacts</a></li>
+                    <li><a href="#">More</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="overlay"></div>
+    </section>
+
+    <section class="feelings-section">
+        <h2>How Are You Feeling Today?</h2>
+        <div class="feelings-buttons">
+            <button onclick="showActivity('Anxious')">Anxious</button>
+            <button onclick="showActivity('Stressed')">Stressed</button>
+            <button onclick="showActivity('Active')">Active</button>
+            <button onclick="showActivity('Depressed')">Depressed</button>
+            <button onclick="showActivity('Mood Swings')">Mood Swings</button>
+        </div>
+        <p id="activity-suggestion"></p>
+    </section>
+
+    <section class="section">
+        <h2>About Us</h2>
+        <p>Mind Oasis is a sanctuary for your mind and soul. We believe that mental wellness is a journey, not a destination. Our platform offers expert advice, real-life stories, and a supportive community designed to uplift and inspire you. Whether you're seeking coping strategies, mindfulness techniques, or simply a place to feel heard, Mind Oasis is here to guide you every step of the way. Together, let's cultivate inner peace and build resilience for a happier, healthier life.</p>
+    </section>
+
+    <section class="section">
+        <h2>Our Services</h2>
+        <p>We offer guided meditation sessions, mindfulness workshops, and personalized mental wellness plans to help you find balance and inner peace.</p>
+    </section>
+
+    <section class="section">
+        <h2>Testimonials</h2>
+        <div class="testimonial-carousel">
+            <div class="testimonial">
+                <p>"Mind Oasis has truly transformed my life. Their mindfulness techniques helped me manage stress better than ever before!" - Sarah J.</p>
+            </div>
+            <div class="testimonial">
+                <p>"I love the community support and the resources available. It feels like a safe space to share and grow." - John D.</p>
+            </div>
+            <div class="testimonial">
+                <p>"The guided meditations are a game changer for my daily routine. Highly recommend!" - Emily R.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Contact Us</h2>
+        <p>Email: support@mindoasis.com | Phone: (123) 456-7890</p>
+        <p>Follow us on social media for daily inspiration!</p>
+        <button class="cta-button">Join Our Community</button>
+    </section>
+
+    <script>
+        function showActivity(feeling) {
+            let suggestion = '';
+            switch (feeling) {
+                case 'Anxious':
+                    suggestion = 'Try a calming meditation or deep breathing exercises.';
+                    break;
+                case 'Stressed':
+                    suggestion = 'Consider taking a short walk or practicing mindfulness.';
+                    break;
+                case 'Active':
+                    suggestion = 'Engage in a physical activity or a fun workout!';
+                    break;
+                case 'Depressed':
+                    suggestion = 'Reach out to a friend or try journaling your thoughts.';
+                    break;
+                case 'Mood Swings':
+                    suggestion = 'Practice grounding techniques or listen to uplifting music.';
+                    break;
+                default:
+                    suggestion = 'How about a moment of mindfulness?';
+            }
+            document.getElementById('activity-suggestion').innerText = suggestion;
+        }
+    </script>
+</body>
+</html>

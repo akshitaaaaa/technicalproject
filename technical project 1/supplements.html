@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans bg-gray-100">
+    <style>
+      
+      body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            background-image: url('images/bg3.avif');
+            background-size: cover; /* Cover the entire area */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-position: center; /* Center the image */
+        }
+        
+        /* Top Bar */
+        .top-bar {
+            background-color: rgba(46, 125, 50, 0.8); /* Slightly transparent for better visibility */
+            color: white;
+            text-align: center;
+            padding: 8px;
+            border-radius: 0 0 20px 20px;
+        }
+        nav ul li a:hover {
+            color: white;
+            background-color: #66bb6a; /* Light green on hover */
+        }
+        
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 15px 50px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            margin: 10px;
+           
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 80px;
+            width: auto;
+        }
+        
+        .logo-text {
+            font-size: 24px; /* Smaller font size */
+            font-weight: 600;
+            color: #ff9800; /* Orange for the main name */
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px; /* Reduced gap */
+        }
+        nav ul li {
+            position: relative;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #ff9800; /* Orange for navigation links */
+            font-size: 16px; /* Smaller font size */
+            font-weight: 400;
+            transition: color 0.3s ease;
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+        
+        nav ul li a:hover {
+            color: #f57c00;
+            background-color: #fbe9e7;
+        }
+       
+      .hero .overlay {
+      position: absolute;
+      inset: 0;
+      background-color: #0b040480;
+    }
+
+      .product-card {
+        
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        
+        width: 100%;
+        height: auto;
+        margin-right: 100px;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        
+      }
+      
+      .product-card img {
+        width: 100%;
+        height: 16rem;
+        object-fit: cover;
+      }
+    </style>
+  <header>
+    <centre>
+      <div class="top-bar">Your Journey to Mental Clarity Begins Here</div>
+      
+
+           
+    </header>
+    <nav>
+      <div class="nav-left">
+          <div class="logo">
+              <img src="images/logo.png" alt="Mind Oasis Logo">
+          </div>
+          <div class="logo-text">Mind Oasis</div>
+      </div>
+      <ul>
+        <li><a href="main.html">Home</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="write.html">Your Thoughts</a></li>
+        <li><a href="yoga.html">Videos</a></li>
+        <li><a href="#">Podcast</a></li>
+        <li><a href="#">Contacts</a></li>
+        <li><a href="#">More</a></li>
+      </ul>
+  </nav>
+
+        <section class="py-12">
+            <div class="container mx-auto px-4">  
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6"> 
+            <div class="product-card">
+              <img src="supplements/HealthKart HK Vitals Calcium & Vitamin D3 For Bones & Joints.png"  alt="Accessories" width="200" height="300">
+              <div class="p-4">
+              <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/4bISHUG" class="hover:underline">HealthKart HK Vitals Calcium & Vitamin D3 For Bones & Joints</h3></a>
+              <h3 class="text-lg font-semibold mb-2">₹349</h3>
+            </div>
+            
+          </div>
+          <div class="product-card">
+            <img src="supplements/arth.webp" alt="Accessories"width="200" height="300">
+            <div class="p-4">
+            <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/2kSEJAl" class="hover:underline">Arth Reduces anxiety and stress </a></h3>
+            <h3 class="text-lg font-semibold mb-2">₹279</h3>
+            
+          </div>
+        </div>
+        
+        <div class="product-card">
+            <img src="supplements/Brain Formula.png" alt="Accessories"width="200" height="300">
+            <div class="p-4">
+            <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/cfxLzOM" class="hover:underline">Tata Brain Formula</a> </h3>
+            <h3 class="text-lg font-semibold mb-2">₹499</h3>
+          </div>
+        </div>
+
+            <div class="product-card">
+              <img src="supplements/ashwagandha.jpg" alt="Accessories" width="200" height="300">
+              <div class="p-4">
+              <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/1x1U9Ht" class="hover:underline">Ashwagandha</a></h3>
+              <h3 class="text-lg font-semibold mb-2">₹702</h3>
+            
+          </div>
+        </div>
+          <div class="product-card">
+            <img src="supplements/HealthKart HK Vitals Iron Folic Acid Tablets.png"  alt="Accessories" width="200" height="300">
+            <div class="p-4">
+            <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/76S0rJn" class="hover:underline">HealthKart HK Vitals Iron Folic Acid Tablets</a></h3>
+            <h3 class="text-lg font-semibold mb-2">₹349</h3>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="supplements/HealthKart hk vitals Calcium Magnesium & Zinc.jpg" alt="Accessories" width="200" height="300">
+          <div class="p-4">
+          <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/0F7bkxP" class="hover:underline">HealthKart hk vitals Calcium Magnesium & Zinc</a></h3>
+          <h3 class="text-lg font-semibold mb-2">₹299</h3>
+          
+        </div>
+      </div>
+      
+      <div class="product-card">
+          <img src="supplements/Himalaya Mentat.png" alt="Accessories"width="200" height="300">
+          <div class="p-4">
+          <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/eKjAZis" class="hover:underline">Himalaya Mentat</a></h3>
+          <h3 class="text-lg font-semibold mb-2">₹380</h3>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="supplements/iron.webp" alt="Accessories"width="200" height="300">
+        <div class="p-4">
+        <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/2PW6vEy" class="hover:underline">Feroglobin B12 Capsules</a></h3>
+        <h3 class="text-lg font-semibold mb-2">₹221</h3>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="supplements/Koshaveda Ashwagandha.jpg" alt="Accessories"width="200" height="300">
+      <div class="p-4">
+      <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/hFNESSW" class="hover:underline">Koshaveda Ashwagandha</a></h3>
+      <h3 class="text-lg font-semibold mb-2">₹379</h3>
+    </div>
+  </div>
+  <div class="product-card">
+    <img src="supplements/Omega.webp" alt="Accessories"width="200" height="300">
+    <div class="p-4">
+    <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/98SgDvK" class="hover:underline">Omega</a> </h3>
+    <h3 class="text-lg font-semibold mb-2">₹1407</h3>
+  </div>
+</div>
+<div class="product-card">
+  <img src="supplements/vitamin c.webp" alt="Accessories"width="200" height="300">
+  <div class="p-4">
+  <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/2ug0uao" class="hover:underline">Vitamin C Tablets</a> </h3>
+  <h3 class="text-lg font-semibold mb-2">₹36</h3>
+</div>
+</div>
+
+          <div class="product-card">
+            <img src="supplements/zinc.jpg" alt="Accessories" width="200" height="300">
+            <div class="p-4">
+            <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/9gEKAEg" class="hover:underline">Zinc Balance</a></h3>
+            <h3 class="text-lg font-semibold mb-2">₹1393</h3>
+          
+        </div>
+      </div>
+    </centre>
+ 
+
+</body>
+</html>

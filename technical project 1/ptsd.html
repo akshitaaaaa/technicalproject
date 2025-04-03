@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Oasis - PTSD Survey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #e8f5e9; /* Light green background */
+            background-image: url('images/bg3.avif'); /* Add your background image here */
+            background-size: cover; /* Cover the entire page */
+            background-position: center; /* Center the background image */
+            height: 100vh; /* Full height */
+            display: flex;
+            flex-direction: column;
+        }
+        .top-bar {
+            background-color: rgba(46, 125, 50, 0.8); /* Dark green with transparency */
+            color: white;
+            text-align: center;
+            padding: 8px;
+            border-radius: 0 0 20px 20px;
+            font-size: 14px; /* Smaller text size */
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.9); /* White with transparency */
+            padding: 15px 50px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            margin: 10px;
+        }
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo img {
+            height: 70px; /* Slightly smaller logo */
+            width: auto;
+        }
+        .logo-text {
+            font-size: 24px; /* Smaller font size */
+            font-weight: 600;
+            color: #ff9800; /* Orange for the main name */
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px; /* Reduced gap */
+        }
+        nav ul li {
+            position: relative;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #ff9800; /* Orange for navigation links */
+            font-size: 16px; /* Smaller font size */
+            font-weight: 400;
+            transition: color 0.3s ease;
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+        nav ul li a:hover {
+            color: white;
+            background-color: #66bb6a; /* Light green on hover */
+        }
+        .section {
+            background-color: rgba(255, 255, 255, 0.9); /* White with transparency */
+            border-radius: 20px;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .section h2 {
+            color: #ff9800; /* Orange for section headings */
+            font-size: 28px; /* Smaller heading size */
+            margin-bottom: 10px;
+        }
+        .section p {
+            color: #333;
+            font-size: 16px; /* Smaller paragraph size */
+            line-height: 1.4; /* Adjusted line height */
+            margin-bottom: 20px;
+        }
+        .quiz-questions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px; /* Space between questions */
+            text-align: left; /* Align text to the left */
+            width: 100%; /* Full width */
+        }
+        .quiz-question {
+            width: 100%; /* Full width for questions */
+        }
+        .quiz-question label {
+            display: block; /* Block display for labels */
+            margin-bottom: 5px; /* Space between label and options */
+            font-weight: bold; /* Bold for question labels */
+        }
+        .quiz-options {
+            display: flex;
+            flex-direction: column; /* Stack options vertically */
+            gap: 5px; /* Space between options */
+        }
+        .quiz-options input[type="radio"] {
+            margin-right: 10px; /* Space between radio button and label */
+        }
+        button {
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            margin: auto;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #1b5e20;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #d32f2f; /* Change the color of the result text */
+            display: none; /* Hidden by default */
+        }
+        .result h3 {
+            color: #d32f2f; /* Change the color of the "Your Results:" heading */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">Your Journey to Mental Clarity Begins Here</div>
+        <nav>
+            <div class="nav-left">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Mind Oasis Logo">
+                </div>
+                <div class="logo-text">Mind Oasis</div>
+            </div>
+            <ul>
+                <li><a href="main.html">Home</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="write.html">Your Thoughts</a></li>
+                <li><a href="yoga.html">Videos</a></li>
+                <li><a href="#">Podcast</a></li>
+                <li><a href="#">Contacts</a></li>
+                <li><a href="#">More</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="section">
+        <h2>PTSD Survey</h2>
+        <p>Take our quiz to learn more about your mental health and identify any potential concerns.</p>
+        
+        <form id="ptsdForm">
+            <div class="quiz-questions">
+                <div class="quiz-question">
+                    <label>1. How often do you have unwanted and distressing memories of a traumatic event?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="memories" value="0"> Never</label>
+                        <label><input type="radio" name="memories" value="1"> Rarely</label>
+                        <label><input type="radio" name="memories" value="2"> Sometimes</label>
+                        <label><input type="radio" name="memories" value="3"> Often</label>
+                        <label><input type="radio" name="memories" value="4"> Very Often</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <label>2. Do you experience nightmares or upsetting dreams related to a traumatic event?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="nightmares" value="0"> Never</label>
+                        <label><input type="radio" name="nightmares" value="1"> Rarely</label>
+                        <label><input type="radio" name="nightmares" value="2"> Sometimes</label>
+                        <label><input type="radio" name="nightmares" value="3"> Often</label>
+                        <label><input type="radio" name="nightmares" value="4"> Very Often</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <label>3. How often do you feel like you're reliving a traumatic event (flashbacks)?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="flashbacks" value="0"> Never</label>
+                        <label><input type="radio" name="flashbacks" value="1"> Rarely</label>
+                        <label><input type="radio" name="flashbacks" value="2"> Sometimes</label>
+                        <label><input type="radio" name="flashbacks" value="3"> Often</label>
+                        <label><input type="radio" name="flashbacks" value="4"> Very Often</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <label>4. Do you go out of your way to avoid reminders (people, places, situations) of a traumatic event?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="avoidance" value="0"> Never</label>
+                        <label><input type="radio" name="avoidance" value="1"> Rarely</label>
+                        <label><input type="radio" name="avoidance" value="2"> Sometimes</label>
+                        <label><input type="radio" name="avoidance" value="3"> Often</label>
+                        <label><input type="radio" name="avoidance" value="4"> Very Often</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <label>5. How often do you feel emotionally numb or detached from others?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="numbness" value="0"> Never</label>
+                        <label><input type="radio" name="numbness" value="1"> Rarely</label>
+                        <label><input type="radio" name="numbness" value="2"> Sometimes</label>
+                        <label><input type="radio" name="numbness" value="3"> Often</label>
+                        <label><input type="radio" name="numbness" value="4"> Very Often</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <label>6. Do you experience sudden feelings of anger, irritability, or aggressive behavior?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="anger" value="0"> Never</label>
+                        <label><input type="radio" name="anger" value="1"> Rarely</label>
+                        <label><input type="radio" name="anger" value="2"> Sometimes</label>
+                        <label><input type="radio" name="anger" value="3"> Often</label>
+                        <label><input type="radio" name="anger" value="4"> Very Often</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <label>7. How often do you feel constantly on edge, watchful, or easily startled?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="edginess" value="0"> Never</label>
+                        <label><input type="radio" name="edginess" value="1"> Rarely</label>
+                        <label><input type="radio" name="edginess" value="2"> Sometimes</label>
+                        <label><input type="radio" name="edginess" value="3"> Often</label>
+                        <label><input type="radio" name="edginess" value="4"> Very Often</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <label>8. Do you struggle with concentration or memory problems related to a traumatic event?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="concentration" value="0"> Never</label>
+                        <label><input type="radio" name="concentration" value="1"> Rarely</label>
+                        <label><input type="radio" name="concentration" value="2"> Sometimes</label>
+                        <label><input type="radio" name="concentration" value="3"> Often</label>
+                        <label><input type="radio" name="concentration" value="4"> Very Often</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <label>9. Have you lost interest in activities you once enjoyed?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="interest" value="0"> Never</label>
+                        <label><input type="radio" name="interest" value="1"> Rarely</label>
+                        <label><input type="radio" name="interest" value="2"> Sometimes</label>
+                        <label><input type="radio" name="interest" value="3"> Often</label>
+                        <label><input type="radio" name="interest" value="4"> Very Often</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <label>10. How much do these symptoms interfere with your daily life (work, school, relationships)?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="interference" value="0"> Not at all</label>
+                        <label><input type="radio" name="interference" value="1"> A little</label>
+                        <label><input type="radio" name="interference" value="2"> Somewhat</label>
+                        <label><input type="radio" name="interference" value="3"> Quite a bit</label>
+                        <label><input type="radio" name="interference" value="4"> Extremely</label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit">Submit Quiz</button>
+        </form>
+        
+        <div class="result" id="result"></div>
+    </section>
+
+    <script>
+        document.getElementById("ptsdForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let responses = document.querySelectorAll("input[type=radio]:checked");
+            
+            // Check if at least one response is selected
+            if (responses.length === 0) {
+                alert("Please select at least one option before submitting.");
+                return; // Exit the function if no options are selected
+            }
+
+            let score = 0;
+            
+            responses.forEach(response => {
+                score += parseInt(response.value);
+            });
+            
+            let resultText = "";
+            if (score <= 5) {
+                resultText = "You experience minimal PTSD symptoms.";
+            } else if (score <= 10) {
+                resultText = "You may have mild PTSD symptoms. Consider talking to someone about how you feel.";
+            } else if (score <= 15) {
+                resultText = "You may have moderate PTSD symptoms. It might be helpful to reach out for support.";
+            } else {
+                resultText = "You may have severe PTSD symptoms. Please consider seeking professional help.";
+            }
+
+            // Display the result
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `<h3>Your Results:</h3><p style="color: #333;">${resultText}</p>`;
+            resultDiv.style.display = 'block'; // Show the result div
+        });
+    </script>
+</body>
+</html>

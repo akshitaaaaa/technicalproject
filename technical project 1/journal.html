@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans bg-gray-100">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            background-image: url('images/bg3.avif');
+            background-size: cover; /* Cover the entire area */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-position: center; /* Center the image */
+        }
+        
+        /* Top Bar */
+        .top-bar {
+            background-color: rgba(46, 125, 50, 0.8); /* Slightly transparent for better visibility */
+            color: white;
+            text-align: center;
+            padding: 8px;
+            border-radius: 0 0 20px 20px;
+        }
+        nav ul li a:hover {
+            color: white;
+            background-color: #66bb6a; /* Light green on hover */
+        }
+        
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 15px 50px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            margin: 10px;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 80px;
+            width: auto;
+        }
+        
+        .logo-text {
+            font-size: 24px; /* Smaller font size */
+            font-weight: 600;
+            color: #ff9800; /* Orange for the main name */
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px; /* Reduced gap */
+        }
+        nav ul li {
+            position: relative;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #ff9800; /* Orange for navigation links */
+            font-size: 16px; /* Smaller font size */
+            font-weight: 400;
+            transition: color 0.3s ease;
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+        
+        nav ul li a:hover {
+            color: #f57c00;
+            background-color: #fbe9e7;
+        }
+       
+      .hero .overlay {
+      position: absolute;
+      inset: 0;
+      background-color: #0b040480;
+    }
+
+      .product-card {
+        background-color: rgb(233, 229, 223);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        height: auto;
+        margin-right: 100px;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        
+      }
+      
+      .product-card img {
+        width: 100%;
+        height: 12rem;
+        object-fit: cover;
+      }
+    </style>
+  <header>
+    <centre>
+      <div class="top-bar">Your Journey to Mental Clarity Begins Here</div>
+        
+          <nav>
+            <div class="nav-left">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Mind Oasis Logo">
+                </div>
+                <div class="logo-text">Mind Oasis</div>
+            </div>
+            <ul>
+              <li><a href="main.html">Home</a></li>
+              <li><a href="product.html">Products</a></li>
+              <li><a href="quiz.html">Quiz</a></li>
+              <li><a href="write.html">Your Thoughts</a></li>
+              <li><a href="yoga.html">Videos</a></li>
+              <li><a href="#">Podcast</a></li>
+              <li><a href="#">Contacts</a></li>
+              <li><a href="#">More</a></li>
+            </ul>
+        </nav>
+           
+    </header>
+
+        <section class="py-12">
+            <div class="container mx-auto px-4">  
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6"> 
+            <div class="product-card">
+              <img src="journal/anxiety.webp"  alt="Journal" width="200" height="300">
+              <div class="p-4">
+              <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/6TtZX8u" class="hover:underline">The Anxiety Journal</h3></a>
+              <h3 class="text-lg font-semibold mb-2">₹407</h3>
+              
+            </div>
+          </div>
+          <div class="product-card">
+            <img src="journal/3minpositivity jounal.webp" alt="Journal"width="100" height="100">
+            <div class="p-4">
+              <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/izXjmHE" class="hover:underline">3 Minpositivity Journal</h3></a>
+            <h3 class="text-lg font-semibold mb-2">₹343</h3>
+          
+        </div>
+      </div>
+          <div class="product-card">
+            <img src="journal/selfcare.png" alt="Journal" width="100" height="100">
+            <div class="p-4">
+              <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/9vkgwM5" class="hover:underline">Self Care Journal</h3></a>
+            <h3 class="text-lg font-semibold mb-2">₹917</h3>
+            
+          </div>
+        </div>
+        
+        <div class="product-card">
+            <img src="journal/centre.webp" alt="Journal"width="100" height="100">
+            <div class="p-4">
+              <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/anR4MzL" class="hover:underline">Do One Thing That Centers You </h3></a>
+            <h3 class="text-lg font-semibold mb-2">₹555</h3>
+          </div>
+        </div>
+
+            <div class="product-card">
+              <img src="journal/Mindfulness Journal.png" alt="Journal"width="100" height="100">
+              <div class="p-4">
+                <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/55s2gpB" class="hover:underline">Mindfulness Journal</h3></a>
+              <h3 class="text-lg font-semibold mb-2">₹407</h3>
+            
+          </div>
+        </div>
+        
+     
+          <div class="product-card">
+            <img src="journal/wellness.webp"  alt="Journal" width="200" height="300">
+            <div class="p-4">
+              <h3 class="text-lg font-semibold mb-2"><a href="https://ekatrahandmade.com/products/ekatra-x-realign?variant=50812075704623&country=IN&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&srsltid=AfmBOoqK94Q9eBMyGOcjbNRAZOKc4DsteqJzoWlhhyyuRoZYjo00dtAq5mI" class="hover:underline">Realign Relax Radiate</h3></a>
+            <h3 class="text-lg font-semibold mb-2">₹1020</h3>
+            
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="journal/Daily gratitude.png" alt="Journal"width="100" height="100">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/8O0xaRy" class="hover:underline">Daily Gratitude Journal</h3></a>
+          <h3 class="text-lg font-semibold mb-2">₹301</h3>
+          
+        </div>
+      </div>
+      
+      <div class="product-card">
+          <img src="journal/Create your own calm Journal.jpg" alt="Journal"width="100" height="100">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/gIBuhMh" class="hover:underline">Create your own calm Journal </h3></a>
+          <h3 class="text-lg font-semibold mb-2">₹912</h3>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="journal/Abundance Journal.jpg"  alt="Journal" width="200" height="300">
+        <div class="p-4">
+          <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/iuiA5YN" class="hover:underline">Abundance Journal</h3></a>
+        <h3 class="text-lg font-semibold mb-2">₹1299</h3>
+        
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="journal/triowellness.webp" alt="Journal"width="100" height="100">
+      <div class="p-4">
+        <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/6TtZX8u" class="hover:underline">Tranquil Trio fitness Journal</h3></a>
+      <h3 class="text-lg font-semibold mb-2">₹1,299</h3>
+    
+  </div>
+</div>
+    <div class="product-card">
+      <img src="journal/gratitude.webp" alt="Journal"width="100" height="100">
+      <div class="p-4">
+        <h3 class="text-lg font-semibold mb-2"><a href="https://brightsidejournal.com/products/brightside-gratitude-journal?variant=46763591205179" class="hover:underline">Brightside Gratitude Journal </h3></a>
+      <h3 class="text-lg font-semibold mb-2">₹1099</h3>
+      
+    </div>
+  </div>
+  
+  <div class="product-card">
+      <img src="journal/wellness journal.webp" alt="Journal"width="100" height="100">
+      <div class="p-4">
+        <h3 class="text-lg font-semibold mb-2"><a href="https://papernest.in/products/self-care-journal?variant=49119696290080" class="hover:underline">Wellness Journal</h3></a>
+      <h3 class="text-lg font-semibold mb-2">₹480</h3>
+    </div>
+  </div>
+
+      <div class="product-card">
+        <img src="journal/feelings.webp" alt="Journal"width="100" height="100">
+        <div class="p-4">
+          <h3 class="text-lg font-semibold mb-2"><a href="https://www.oddgiraffe.com/products/feel-all-the-feelings-4?variant=40081367892003&country=IN&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&srsltid=AfmBOop9rUOtF2y5Kx9HJgE8nlGReS9g13G6e6xKH6DlQwJui_HDSd08ENI" class="hover:underline">Feelings Journal</h3></a>
+        <h3 class="text-lg font-semibold mb-2">₹799</h3>
+      
+    </div>
+  </div>
+  
+
+
+        
+    </centre>
+ 
+
+</body>
+</html>

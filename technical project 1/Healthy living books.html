@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans bg-gray-100">
+    <style>
+         body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            background-image: url('images/bg3.avif');
+            background-size: cover; /* Cover the entire area */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-position: center; /* Center the image */
+        }
+        
+        /* Top Bar */
+        .top-bar {
+            background-color: rgba(46, 125, 50, 0.8); /* Slightly transparent for better visibility */
+            color: white;
+            text-align: center;
+            padding: 8px;
+            border-radius: 0 0 20px 20px;
+        }
+        nav ul li a:hover {
+            color: white;
+            background-color: #66bb6a; /* Light green on hover */
+        }
+        
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 15px 50px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            margin: 10px;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 80px;
+            width: auto;
+        }
+        
+        .logo-text {
+            font-size: 24px; /* Smaller font size */
+            font-weight: 600;
+            color: #ff9800; /* Orange for the main name */
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px; /* Reduced gap */
+        }
+        nav ul li {
+            position: relative;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #ff9800; /* Orange for navigation links */
+            font-size: 16px; /* Smaller font size */
+            font-weight: 400;
+            transition: color 0.3s ease;
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+        
+        nav ul li a:hover {
+            color: #f57c00;
+            background-color: #fbe9e7;
+        }
+       
+      .hero .overlay {
+      position: absolute;
+      inset: 0;
+      background-color: #0b040480;
+    }
+
+      .product-card {
+        background-color: rgb(233, 229, 223);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        height: auto;
+        margin-right: 100px;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        
+      }
+      
+      .product-card img {
+        width: 500px;
+        height: 200px;
+        object-fit: cover;
+        
+      }
+   
+    </style>
+  <header>
+    <centre>
+      <div class="top-bar">Your Journey to Mental Clarity Begins Here</div>
+      
+    </header>
+    <nav>
+      <div class="nav-left">
+          <div class="logo">
+              <img src="images/logo.png" alt="Mind Oasis Logo">
+          </div>
+          <div class="logo-text">Mind Oasis</div>
+      </div>
+      <ul>
+        <li><a href="main.html">Home</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="write.html">Your Thoughts</a></li>
+        <li><a href="yoga.html">Videos</a></li>
+        <li><a href="#">Podcast</a></li>
+        <li><a href="#">Contacts</a></li>
+        <li><a href="#">More</a></li>
+      </ul>
+  </nav>
+
+        <section class="py-12">
+            <div class="container mx-auto px-4">  
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6"> 
+            <div class="product-card">
+              <img src="living books/Atomic habits.jpg"  alt="Books" width="200" height="300">
+              <div class="p-4">
+             <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/eyrR8Rp" class="hover:underline"> Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones</a></h3>
+                <h1 class="text-lg font-semibold mb-2">Book by James Clear</h1>
+              <h3 class="text-lg font-semibold mb-2">₹673</h3>
+              
+            </div>
+          </div>
+          <div class="product-card">
+            <img src="living books/the dose effect.jpg" alt="Books" width="100" height="100">
+            <div class="p-4">
+              <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/ax0Q9VA" class="hover:underline"> The DOSE Effect</a></h3>
+            <h1 class="text-lg font-semibold mb-2">Book by T. J. Power</h1>
+            <h3 class="text-lg font-semibold mb-2">₹259</h3>
+          
+        </div>
+      </div>
+          <div class="product-card">
+            <img src="living books/energize your mind.webp" alt="books" width="100" height="100">
+            <div class="p-4">
+              <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/5DrGum8" class="hover:underline">Energize Your Mind: Learn the Art of Mastering Your thoughts</a></h3>
+            <h1 class="text-lg font-semibold mb-2">Book by Gaur Gopal Das</h1>
+            <h3 class="text-lg font-semibold mb-2">₹209</h3>
+            
+          </div>
+        </div>
+        
+        <div class="product-card">
+            <img src="living books/bodykeeps.jpg" alt="Books" class="w-48 h-64 object-cover">
+            <div class="p-4">
+              <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/i0odX6Y" class="hover:underline">The Body Keeps the Score: Brain, Mind, and Body in the Healing of Trauma</a></h3>
+            <h1 class="text-lg font-semibold mb-2">Book by Bessel van der Kolk</h1>
+            <h3 class="text-lg font-semibold mb-2">₹501</h3>
+          </div>
+        </div>
+
+            <div class="product-card">
+              <img src="living books/thecomfortcrisis.jpg" alt="Books" width="100" height="100">
+              <div class="p-4">
+                <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/7r2mdFK" class="hover:underline">The Comfort Crisis: Embrace Discomfort To Reclaim Your Wild, Happy, Healthy Self</a></h3>
+              <h1 class="text-lg font-semibold mb-2">Book by Michael Easter</h1>
+              <h3 class="text-lg font-semibold mb-2">₹435</h3>
+            
+          </div>
+        </div>
+        
+     
+          <div class="product-card">
+            <img src="living books/youcanhealurlife.jpg"  alt="Books" width="200" height="300">
+            <div class="p-4">
+              <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/b8J46qq" class="hover:underline">You Can Heal Your Life</a></h3>
+            <h1 class="text-lg font-semibold mb-2">Book by Louise Hay</h1>
+            <h3 class="text-lg font-semibold mb-2">₹325 </h3>
+            
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="living books/30dayschange.jpg" alt="Books"width="100" height="100">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/huE8tBq" class="hover:underline">30 DAYS: Change your habits, Change your life</a></h3>
+          <h1 class="text-lg font-semibold mb-2">Book by Marc Reklau</h1>
+          <h3 class="text-lg font-semibold mb-2">₹210</h3>
+          
+        </div>
+      </div>
+      
+      <div class="product-card">
+          <img src="living books/idontloveyouanymore.jpg" alt="Books"width="100" height="100">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/iNTo7bp" class="hover:underline">I Don't Love You Anymore: Moving On and Living Your Best Life</a></h3>
+          <h1 class="text-lg font-semibold mb-2">Book by Rithvik Singh</h1>
+          <h3 class="text-lg font-semibold mb-2">₹206</h3>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="living books/brain energy.jpg"  alt="Books" width="200" height="300">
+        <div class="p-4">
+          <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/3F4C6l3" class="hover:underline">Brain Energy: A Revolutionary Breakthrough in Understanding Mental Health--and Improving Treatment for Anxiety, Depression, OCD, PTSD, and More</a></h3>
+        <h1 class="text-lg font-semibold mb-2">Book by Christopher M. Palmer</h1>
+        <h3 class="text-lg font-semibold mb-2">₹1995</h3>
+        
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="living books/change yourdiet.jpg" alt="Books" width="100" height="100">
+      <div class="p-4">
+        <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/1FxDOyY" class="hover:underline">Change Your Diet, Change Your Mind: A Powerful Plan to Improve Mood, Overcome Anxiety, and Protect Memory for a Lifetime of Optimal Mental Health</a></h3>
+      <h1 class="text-lg font-semibold mb-2">Book by Dr Georgia Ede</h1>
+      <h3 class="text-lg font-semibold mb-2">₹1664</h3>
+    
+  </div>
+</div>
+    <div class="product-card">
+      <img src="living books/buildthelife.jpg" alt="Books" width="100" height="100">
+      <div class="p-4">
+        <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/3LHVvqj" class="hover:underline">Build the Life You Want</a></h3>
+      <h1 class="text-lg font-semibold mb-2">Book by Arthur C. Brooks and Oprah Winfrey</h1>
+      <h3 class="text-lg font-semibold mb-2">₹1810</h3>
+      
+    </div>
+  </div>
+  
+  <div class="product-card">
+      <img src="living books/practical optimism.png" alt="Books" class="w-32 h-40">
+      <div class="p-4">
+        <h3 class="text-lg font-semibold mb-2"><a href="https://amzn.in/d/cVodP0C" class="hover:underline">Practical Optimism: The Art, Science, and Practice of Exceptional Well-Being</a></h3>
+      <h1 class="text-lg font-semibold mb-2">Book by Sue Varma</h1>
+      <h3 class="text-lg font-semibold mb-2">₹1871</h3>
+    </div>
+  </div>
+        
+    </centre>
+ 
+
+</body>
+</html>

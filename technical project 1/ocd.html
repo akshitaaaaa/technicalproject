@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Oasis - OCD Survey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #e8f5e9; /* Light green background */
+            background-image: url('images/bg3.avif'); /* Add your background image here */
+            background-size: cover; /* Cover the entire page */
+            background-position: center; /* Center the background image */
+            height: 100vh; /* Full height */
+            display: flex;
+            flex-direction: column;
+        }
+        .top-bar {
+            background-color: rgba(46, 125, 50, 0.8); /* Dark green with transparency */
+            color: white;
+            text-align: center;
+            padding: 8px;
+            border-radius: 0 0 20px 20px;
+            font-size: 14px; /* Smaller text size */
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.9); /* White with transparency */
+            padding: 15px 50px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            margin: 10px;
+        }
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo img {
+            height: 70px; /* Slightly smaller logo */
+            width: auto;
+        }
+        .logo-text {
+            font-size: 24px; /* Smaller font size */
+            font-weight: 600;
+            color: #ff9800; /* Orange for the main name */
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px; /* Reduced gap */
+        }
+        nav ul li {
+            position: relative;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #ff9800; /* Orange for navigation links */
+            font-size: 16px; /* Smaller font size */
+            font-weight: 400;
+            transition: color 0.3s ease;
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+        nav ul li a:hover {
+            color: white;
+            background-color: #66bb6a; /* Light green on hover */
+        }
+        .section {
+            background-color: rgba(255, 255, 255, 0.9); /* White with transparency */
+            border-radius: 20px;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .section h2 {
+            color: #ff9800; /* Orange for section headings */
+            font-size: 28px; /* Smaller heading size */
+            margin-bottom: 10px;
+        }
+        .section p {
+            color: #333;
+            font-size: 16px; /* Smaller paragraph size */
+            line-height: 1.4; /* Adjusted line height */
+            margin-bottom: 20px;
+        }
+        .quiz-questions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px; /* Space between questions */
+            text-align: left; /* Align text to the left */
+            width: 100%; /* Full width */
+        }
+        .quiz-question {
+            width: 100%; /* Full width for questions */
+        }
+        .quiz-question label {
+            display: block; /* Block display for labels */
+            margin-bottom: 5px; /* Space between label and options */
+            font-weight: bold; /* Bold for question labels */
+        }
+        .quiz-options {
+            display: flex;
+            flex-direction: column; /* Stack options vertically */
+            gap: 5px; /* Space between options */
+        }
+        .quiz-options input[type="radio"] {
+            margin-right: 10px; /* Space between radio button and label */
+        }
+        button {
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            margin: auto;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #1b5e20;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #d32f2f; /* Change the color of the result text */
+            display: none; /* Hidden by default */
+        }
+        .result h3 {
+            color:#d32f2f; /* Change the color of the "Your Results:" heading */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">Your Journey to Mental Clarity Begins Here</div>
+        <nav>
+            <div class="nav-left">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Mind Oasis Logo">
+                </div>
+                <div class="logo-text">Mind Oasis</div>
+            </div>
+            <ul>
+                <li><a href="main.html">Home</a></li>
+                    <li><a href="product.html">Products</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="write.html">Your Thoughts</a></li>
+                    <li><a href="yoga.html">Videos</a></li>
+                    <li><a href="#">Podcast</a></li>
+                    <li><a href="#">Contacts</a></li>
+                    <li><a href="#">More</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="section">
+        <h2>OCD (Obsessive-Compulsive Disorder) Survey</h2>
+        <p>Take our survey to learn more about your OCD symptoms and identify any potential concerns.</p>
+        
+        <form id="ocdForm">
+            <div class="quiz-questions">
+                <div class="quiz-question">
+                    <label>1. Do you experience unwanted, intrusive thoughts that cause distress?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q1" value="2"> Yes</label>
+                        <label><input type="radio" name="q1" value="0"> No</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <label>2. How often do these intrusive thoughts occur?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q2" value="0"> Never</label>
+                        <label><input type="radio" name="q2" value="1"> Rarely</label>
+                        <label><input type="radio" name="q2" value="2"> Occasionally</label>
+                        <label><input type="radio" name="q2" value="3"> Frequently</label>
+                        <label><input type="radio" name="q2" value="4"> Almost constantly</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <label>3. Do you feel the need to perform certain actions or rituals to reduce anxiety caused by these thoughts?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q3" value="2"> Yes</label>
+                        <label><input type="radio" name="q3" value="0"> No</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <label>4. How often do you engage in these rituals or compulsive behaviors?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q4" value="0"> Never</label>
+                        <label><input type="radio" name="q4" value="1"> Rarely</label>
+                        <label><input type="radio" name="q4" value="2"> Occasionally</label>
+                        <label><input type="radio" name="q4" value="3"> Frequently</label>
+                        <label><input type="radio" name="q4" value="4"> Almost constantly</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <label>5. Do your compulsions take up a significant amount of your time each day?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q5" value="2"> Yes</label>
+                        <label><input type="radio" name="q5" value="0"> No</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <label>6. Do your obsessive thoughts or compulsive behaviors interfere with your daily life?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q6" value="2"> Yes</label>
+                        <label><input type="radio" name="q6" value="0"> No</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <label>7. Do you avoid certain situations, people, or places due to your OCD symptoms?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q7" value="2"> Yes</label>
+                        <label><input type="radio" name="q7" value="0"> No</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <label>8. Have you tried to stop or control your obsessions or compulsions?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q8" value="2"> Yes</label>
+                        <label><input type="radio" name="q8" value="0"> No</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <label>9. Do you experience distress or frustration when you are unable to perform the rituals or compulsions?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q9" value="2"> Yes</label>
+                        <label><input type="radio" name="q9" value="0"> No</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <label>10. On a scale of 1 to 10, how much do your OCD symptoms affect your quality of life?</label>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q10" value="0"> 1-3 (Minimal)</label>
+                        <label><input type="radio" name="q10" value="2"> 4-6 (Moderate)</label>
+                        <label><input type="radio" name="q10" value="4"> 7-10 (Severe)</label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" onclick="calculateResult()">Submit Survey</button>
+        </form>
+
+        <div class="result" id="result"></div>
+    </section>
+
+    <script>
+        function calculateResult() {
+            let score = 0;
+            const questions = [
+                'q1', 'q2', 'q3', 'q4', 'q5', 
+                'q6', 'q7', 'q8', 'q9', 'q10'
+            ];
+
+            questions.forEach(question => {
+                const selectedOption = document.querySelector(`input[name="${question}"]:checked`);
+                if (selectedOption) {
+                    score += parseInt(selectedOption.value);
+                }
+            });
+
+            let resultText = "";
+            if (score <= 6) {
+                resultText = "You have minimal or no OCD symptoms.";
+            } else if (score <= 12) {
+                resultText = "You may have mild OCD.";
+            } else if (score <= 18) {
+                resultText = "You may have moderate OCD.";
+            } else {
+                resultText = "You may have severe OCD. Consider seeking professional help.";
+            }
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `<h3>Your Results:</h3><p style="color: #333;">${resultText}</p>`;
+            resultDiv.style.display = 'block'; // Show the result div
+        }
+    </script>
+</body>
+</html>
