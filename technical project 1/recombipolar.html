@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Bipolar Disorder Recommendations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #e8f5e9;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-image: url('images/bg3.avif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .container {
+            max-width: 800px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+        h1 {
+            color: #ff9800;
+        }
+        .recommendation {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #f1f8e9;
+        }
+        .category {
+            margin-top: 15px;
+            background-color: #e0f2f1;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .category h3 {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+        .products, .videos {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .item {
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .item-info {
+            text-align: left;
+        }
+        .item a {
+            text-decoration: none;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+        .price {
+            color: #ff9800;
+            font-weight: bold;
+        }
+        .back-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #2e7d32;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .back-btn:hover {
+            background-color: #1b5e20;
+        }
+        .severity-label {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            color: white;
+            font-weight: bold;
+        }
+        .mild {
+            background-color: #8bc34a;
+        }
+        .moderate {
+            background-color: #ffa726;
+        }
+        .severe {
+            background-color: #ef5350;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Personalized Bipolar Disorder Recommendations</h1>
+        <p id="severity-indicator"></p>
+        <p id="result-text"></p>
+
+        <div class="recommendation">
+            <div class="category">
+                <h3>Recommended Books</h3>
+                <div class="products" id="book-list"></div>
+            </div>
+            
+            <div class="category">
+                <h3>Mood Tracking Tools</h3>
+                <div class="products" id="mood-list"></div>
+            </div>
+            
+            <div class="category">
+                <h3>Helpful Accessories</h3>
+                <div class="products" id="accessory-list"></div>
+            </div>
+            
+            <div class="category">
+                <h3>Supplements to Consider</h3>
+                <div class="products" id="supplement-list"></div>
+                <p style="font-size: 12px; margin-top: 10px; color: #666;">*Consult with a healthcare professional before taking any supplements.</p>
+            </div>
+        </div>
+
+        <div class="recommendation">
+            <h2>Recommended Yoga & Meditation</h2>
+            <div class="videos" id="video-list"></div>
+        </div>
+
+        <a href="quiz.html" class="back-btn">Take Another Quiz</a>
+        <a href="product.html" class="back-btn" style="margin-left: 10px; background-color: #ff9800;">Browse All Products</a>
+    </div>
+
+    <script>
+        let quizResult = localStorage.getItem("quizResult") || "moderate-bipolar"; // Default to moderate if no result
+        let resultText = "";
+        let severityLabel = document.createElement("div");
+        let books = [];
+        let moodTrackers = [];
+        let accessories = [];
+        let supplements = [];
+        let videos = [];
+
+        if (quizResult === "mild-bipolar") {
+            resultText = "Your quiz results indicate mild mood fluctuations. These resources can help you maintain stability and track patterns:";
+            severityLabel.classList.add("severity-label", "mild");
+            severityLabel.innerText = "Mild Mood Fluctuations";
+
+            books = [
+                { name: "The Bipolar Disorder Survival Guide by David J. Miklowitz", link: "https://amzn.in/d/4SdGhUp", price: "₹1,649" },
+                { name: "Bipolar, Not So Much by Chris Aiken & James Phelps", link: "https://amzn.in/d/3K9fLMz", price: "₹1,425" }
+            ];
+
+            moodTrackers = [
+                { name: "Wellness Mood Tracker Journal", link: "https://amzn.in/d/0XoIjGq", price: "₹399" },
+                { name: "Mood Tracking Cards", link: "https://amzn.in/d/7w0cRPx", price: "₹299" }
+            ];
+
+            accessories = [
+                { name: "Light Therapy Lamp", link: "https://amzn.in/d/cN3Eaqr", price: "₹1,999" },
+                { name: "Sleep Mask", link: "https://amzn.in/d/4TjzVvF", price: "₹499" }
+            ];
+
+            supplements = [
+                { name: "Vitamin D3", link: "https://amzn.in/d/8TkICMp", price: "₹599" },
+                { name: "Omega-3 Fish Oil", link: "https://amzn.in/d/98SgDvK", price: "₹1,407" }
+            ];
+
+            videos = [
+                { name: "Gentle Bipolar-Friendly Yoga", link: "yoga.html" },
+                { name: "Morning Routine for Mood Stability", link: "yoga.html" }
+            ];
+        } else if (quizResult === "moderate-bipolar") {
+            resultText = "Your quiz results suggest moderate mood cycling. These mood-stabilizing tools are tailored to help with your symptoms:";
+            severityLabel.classList.add("severity-label", "moderate");
+            severityLabel.innerText = "Moderate Mood Cycling";
+
+            books = [
+                { name: "Take Charge of Bipolar Disorder by Julie A. Fast", link: "https://amzn.in/d/cANfdoR", price: "₹1,189" },
+                { name: "Why Am I Still Depressed? by Jim Phelps", link: "https://amzn.in/d/2Kvt2QR", price: "₹952" },
+                { name: "The Bipolar Workbook by Monica Ramirez Basco", link: "https://amzn.in/d/fOBBMZJ", price: "₹2,209" }
+            ];
+
+            moodTrackers = [
+                { name: "Bipolar Mood Chart Journal", link: "https://amzn.in/d/5tAO2mD", price: "₹649" },
+                { name: "Daily Mood & Energy Tracker", link: "https://amzn.in/d/cQnj9Jp", price: "₹499" },
+                { name: "Sleep Journal", link: "https://amzn.in/d/98tK17E", price: "₹407" }
+            ];
+
+            accessories = [
+                { name: "Weighted Blanket", link: "https://amzn.in/d/0Bx0RPV", price: "₹1,699" },
+                { name: "Sunrise Alarm Clock", link: "https://amzn.in/d/3R8LdUt", price: "₹1,499" },
+                { name: "Noise Cancelling Headphones", link: "https://amzn.in/d/cACW0Xz", price: "₹1,799" }
+            ];
+
+            supplements = [
+                { name: "N-Acetyl Cysteine (NAC)", link: "https://amzn.in/d/1EO1oZF", price: "₹899" },
+                { name: "Magnesium Glycinate", link: "https://amzn.in/d/8sXftSy", price: "₹799" }
+            ];
+
+            videos = [
+                { name: "Bipolar-Specific Meditation", link: "yoga.html" },
+                { name: "Energy Regulation Exercises", link: "yoga.html" },
+                { name: "Sleep Hygiene Tutorial", link: "yoga.html" }
+            ];
+        } else if (quizResult === "severe-bipolar") {
+            resultText = "Your quiz results indicate significant mood instability. These comprehensive solutions are specifically chosen to address your needs:";
+            severityLabel.classList.add("severity-label", "severe");
+            severityLabel.innerText = "Significant Mood Instability";
+
+            books = [
+                { name: "An Unquiet Mind by Kay Redfield Jamison", link: "https://amzn.in/d/7CrcHmQ", price: "₹399" },
+                { name: "Loving Someone with Bipolar Disorder by Julie A. Fast", link: "https://amzn.in/d/hRBLGFP", price: "₹1,533" },
+                { name: "The Dialectical Behavior Therapy Skills Workbook", link: "https://amzn.in/d/4kGTj32", price: "₹1,943" }
+            ];
+
+            moodTrackers = [
+                { name: "Comprehensive Bipolar Workbook", link: "https://amzn.in/d/fOBBMZJ", price: "₹2,209" },
+                { name: "Symptom Tracking Journal", link: "https://amzn.in/d/8zCW3xB", price: "₹899" },
+                { name: "Medication & Mood Journal", link: "https://amzn.in/d/99sSxnX", price: "₹699" }
+            ];
+
+            accessories = [
+                { name: "Premium Light Therapy Lamp", link: "https://amzn.in/d/6BZQRzK", price: "₹3,999" },
+                { name: "Sleep Sound Machine", link: "https://amzn.in/d/dQwCRYl", price: "₹1,999" },
+                { name: "Aromatherapy Diffuser Set", link: "https://amzn.in/d/5cLCVYU", price: "₹1,299" }
+            ];
+
+            supplements = [
+                { name: "High-Potency Omega-3", link: "https://amzn.in/d/5NUmkOi", price: "₹1,909" },
+                { name: "Vitamin D3 + K2", link: "https://amzn.in/d/7e2vCv3", price: "₹499" },
+                { name: "Probiotics for Gut-Brain Health", link: "https://amzn.in/d/5ZdyTjz", price: "₹799" }
+            ];
+
+            videos = [
+                { name: "Bipolar Crisis Management Plan", link: "yoga.html" },
+                { name: "Deep Relaxation for Manic Episodes", link: "yoga.html" },
+                { name: "Depression Recovery Techniques", link: "yoga.html" },
+                { name: "Family Support Strategies", link: "yoga.html" }
+            ];
+        }
+
+        // Add severity indicator
+        document.getElementById("severity-indicator").appendChild(severityLabel);
+        document.getElementById("result-text").innerText = resultText;
+        
+        // Function to create and populate product items
+        function populateList(listId, products) {
+            let list = document.getElementById(listId);
+            products.forEach(product => {
+                let item = document.createElement("div");
+                item.classList.add("item");
+                item.innerHTML = `
+                    <div class="item-info">
+                        <a href="${product.link}" target="_blank">${product.name}</a>
+                    </div>
+                    <span class="price">${product.price}</span>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        // Populate all lists
+        populateList("book-list", books);
+        populateList("mood-list", moodTrackers);
+        populateList("accessory-list", accessories);
+        populateList("supplement-list", supplements);
+        
+        // Populate videos
+        let videoList = document.getElementById("video-list");
+        videos.forEach(video => {
+            let item = document.createElement("div");
+            item.classList.add("item");
+            item.innerHTML = `<a href="${video.link}">${video.name}</a>`;
+            videoList.appendChild(item);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized PTSD Recommendations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #e8f5e9;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-image: url('images/bg3.avif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .container {
+            max-width: 800px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+        h1 {
+            color: #ff9800;
+        }
+        .recommendation {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #f1f8e9;
+        }
+        .category {
+            margin-top: 15px;
+            background-color: #e0f2f1;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .category h3 {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+        .products, .videos {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .item {
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .item-info {
+            text-align: left;
+        }
+        .item a {
+            text-decoration: none;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+        .price {
+            color: #ff9800;
+            font-weight: bold;
+        }
+        .back-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #2e7d32;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .back-btn:hover {
+            background-color: #1b5e20;
+        }
+        .severity-label {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            color: white;
+            font-weight: bold;
+        }
+        .mild {
+            background-color: #8bc34a;
+        }
+        .moderate {
+            background-color: #ffa726;
+        }
+        .severe {
+            background-color: #ef5350;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Personalized PTSD Recommendations</h1>
+        <p id="severity-indicator"></p>
+        <p id="result-text"></p>
+
+        <div class="recommendation">
+            <div class="category">
+                <h3>Recommended Books</h3>
+                <div class="products" id="book-list"></div>
+            </div>
+            
+            <div class="category">
+                <h3>Journaling Tools</h3>
+                <div class="products" id="journal-list"></div>
+            </div>
+            
+            <div class="category">
+                <h3>Helpful Accessories</h3>
+                <div class="products" id="accessory-list"></div>
+            </div>
+            
+            <div class="category">
+                <h3>Supplements to Consider</h3>
+                <div class="products" id="supplement-list"></div>
+                <p style="font-size: 12px; margin-top: 10px; color: #666;">*Consult with a healthcare professional before taking any supplements.</p>
+            </div>
+        </div>
+
+        <div class="recommendation">
+            <h2>Recommended Yoga & Meditation</h2>
+            <div class="videos" id="video-list"></div>
+        </div>
+
+        <a href="quiz.html" class="back-btn">Take Another Quiz</a>
+        <a href="product.html" class="back-btn" style="margin-left: 10px; background-color: #ff9800;">Browse All Products</a>
+    </div>
+
+    <script>
+        let quizResult = localStorage.getItem("quizResult") || "moderate-ptsd"; // Default to moderate if no result
+        let resultText = "";
+        let severityLabel = document.createElement("div");
+        let books = [];
+        let journals = [];
+        let accessories = [];
+        let supplements = [];
+        let videos = [];
+
+        if (quizResult === "mild-ptsd") {
+            resultText = "Your results indicate mild trauma response symptoms. These resources can help manage and process your experiences.";
+            severityLabel.classList.add("severity-label", "mild");
+            severityLabel.innerText = "Mild Trauma Response";
+
+            books = [
+                { name: "Waking the Tiger by Peter A. Levine", link: "https://amzn.in/d/0XjFpY2", price: "₹1,251" },
+                { name: "The Body Keeps the Score by Bessel van der Kolk", link: "https://amzn.in/d/i0odX6Y", price: "₹501" }
+            ];
+
+            journals = [
+                { name: "Daily Gratitude Journal", link: "https://amzn.in/d/8O0xaRy", price: "₹301" },
+                { name: "Mindfulness Journal", link: "https://amzn.in/d/55s2gpB", price: "₹407" }
+            ];
+
+            accessories = [
+                { name: "Weighted Blanket", link: "https://amzn.in/d/0Bx0RPV", price: "₹1,699" },
+                { name: "Aromatherapy Essential Oils Set", link: "https://amzn.in/d/gkA8xQs", price: "₹599" }
+            ];
+
+            supplements = [
+                { name: "Magnesium Glycinate", link: "https://amzn.in/d/8sXftSy", price: "₹799" },
+                { name: "L-Theanine Tablets", link: "https://amzn.in/d/2A2kBfW", price: "₹499" }
+            ];
+
+            videos = [
+                { name: "Gentle Grounding Meditation", link: "yoga.html" },
+                { name: "Morning Relaxation Techniques", link: "yoga.html" }
+            ];
+        } else if (quizResult === "moderate-ptsd") {
+            resultText = "Your results indicate moderate trauma response symptoms. These resources may help provide relief and support your healing journey.";
+            severityLabel.classList.add("severity-label", "moderate");
+            severityLabel.innerText = "Moderate Trauma Response";
+
+            books = [
+                { name: "It Didn't Start With You by Mark Wolynn", link: "https://amzn.in/d/iydEDq6", price: "₹399" },
+                { name: "Complex PTSD: From Surviving to Thriving by Pete Walker", link: "https://amzn.in/d/7FcvtBK", price: "₹2,013" }
+            ];
+
+            journals = [
+                { name: "Anxiety Journal", link: "https://amzn.in/d/6TtZX8u", price: "₹407" },
+                { name: "Create Your Own Calm Journal", link: "https://amzn.in/d/gIBuhMh", price: "₹912" },
+                { name: "Trauma Recovery Workbook", link: "https://amzn.in/d/9YiX8ZQ", price: "₹2,081" }
+            ];
+
+            accessories = [
+                { name: "Deep Sleep Pillow Spray", link: "https://amzn.in/d/4EaLcXS", price: "₹595" },
+                { name: "Stress Relief Fidget Toys", link: "https://amzn.in/d/1VmMxFM", price: "₹149" },
+                { name: "White Noise Machine", link: "https://amzn.in/d/dQwCRYl", price: "₹1,999" }
+            ];
+
+            supplements = [
+                { name: "Ashwagandha", link: "https://amzn.in/d/1x1U9Ht", price: "₹702" },
+                { name: "GABA Supplements", link: "https://amzn.in/d/bYC8pxg", price: "₹1,500" }
+            ];
+
+            videos = [
+                { name: "Trauma-Sensitive Yoga Practice", link: "yoga.html" },
+                { name: "Breathing for Emotional Regulation", link: "yoga.html" },
+                { name: "Guided Visualization for Safety", link: "yoga.html" }
+            ];
+        } else if (quizResult === "severe-ptsd") {
+            resultText = "Your results indicate significant trauma response symptoms. These comprehensive resources may provide substantial support on your healing journey.";
+            severityLabel.classList.add("severity-label", "severe");
+            severityLabel.innerText = "Significant Trauma Response";
+
+            books = [
+                { name: "The Body Keeps the Score by Bessel van der Kolk", link: "https://amzn.in/d/i0odX6Y", price: "₹501" },
+                { name: "Trauma and Recovery by Judith Herman", link: "https://amzn.in/d/cH9Vtqg", price: "₹1,254" },
+                { name: "What Happened to You? by Bruce D. Perry", link: "https://amzn.in/d/8PEE6zt", price: "₹2,015" }
+            ];
+
+            journals = [
+                { name: "Self Care Journal", link: "https://amzn.in/d/9vkgwM5", price: "₹917" },
+                { name: "Feelings Journal", link: "https://www.oddgiraffe.com/products/feel-all-the-feelings-4", price: "₹799" },
+                { name: "Healing Trauma Workbook", link: "https://amzn.in/d/22dojXy", price: "₹2,143" }
+            ];
+
+            accessories = [
+                { name: "Weighted Blanket (15 lbs)", link: "https://amzn.in/d/6YCN4uR", price: "₹3,299" },
+                { name: "Bath Bombs Gift Set", link: "https://amzn.in/d/0AjGvy6", price: "₹399" },
+                { name: "Acupressure Mat and Pillow Set", link: "https://amzn.in/d/1Ck8vbw", price: "₹1,399" }
+            ];
+
+            supplements = [
+                { name: "Omega-3 Fish Oil", link: "https://amzn.in/d/98SgDvK", price: "₹1,407" },
+                { name: "Magnesium Complex", link: "https://amzn.in/d/7q5Sbm5", price: "₹499" },
+                { name: "Vitamin D3 + K2", link: "https://amzn.in/d/7e2vCv3", price: "₹499" }
+            ];
+
+            videos = [
+                { name: "Trauma Release Exercises", link: "yoga.html" },
+                { name: "PTSD Recovery Meditation", link: "yoga.html" },
+                { name: "Somatic Experiencing Practices", link: "yoga.html" },
+                { name: "Restorative Yoga for Healing", link: "yoga.html" }
+            ];
+        }
+
+        // Add severity indicator
+        document.getElementById("severity-indicator").appendChild(severityLabel);
+        document.getElementById("result-text").innerText = resultText;
+        
+        // Function to create and populate product items
+        function populateList(listId, products) {
+            let list = document.getElementById(listId);
+            products.forEach(product => {
+                let item = document.createElement("div");
+                item.classList.add("item");
+                item.innerHTML = `
+                    <div class="item-info">
+                        <a href="${product.link}" target="_blank">${product.name}</a>
+                    </div>
+                    <span class="price">${product.price}</span>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        // Populate all lists
+        populateList("book-list", books);
+        populateList("journal-list", journals);
+        populateList("accessory-list", accessories);
+        populateList("supplement-list", supplements);
+        
+        // Populate videos
+        let videoList = document.getElementById("video-list");
+        videos.forEach(video => {
+            let item = document.createElement("div");
+            item.classList.add("item");
+            item.innerHTML = `<a href="${video.link}">${video.name}</a>`;
+            videoList.appendChild(item);
+        });
+    </script>
+</body>
+</html>

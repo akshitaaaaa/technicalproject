@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Depression Recommendations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #e8f5e9;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-image: url('images/bg3.avif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .container {
+            max-width: 800px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+        h1 {
+            color: #ff9800;
+        }
+        .recommendation {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #f1f8e9;
+        }
+        .category {
+            margin-top: 15px;
+            background-color: #e0f2f1;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .category h3 {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+        .products, .videos {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .item {
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .item-info {
+            text-align: left;
+        }
+        .item a {
+            text-decoration: none;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+        .price {
+            color: #ff9800;
+            font-weight: bold;
+        }
+        .back-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #2e7d32;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .back-btn:hover {
+            background-color: #1b5e20;
+        }
+        .severity-label {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            color: white;
+            font-weight: bold;
+        }
+        .mild {
+            background-color: #8bc34a;
+        }
+        .moderate {
+            background-color: #ffa726;
+        }
+        .severe {
+            background-color: #ef5350;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Personalized Depression Recommendations</h1>
+        <p id="severity-indicator"></p>
+        <p id="result-text"></p>
+
+        <div class="recommendation">
+            <div class="category">
+                <h3>Recommended Books</h3>
+                <div class="products" id="book-list"></div>
+            </div>
+            
+            <div class="category">
+                <h3>Self-Care Tools</h3>
+                <div class="products" id="selfcare-list"></div>
+            </div>
+            
+            <div class="category">
+                <h3>Helpful Accessories</h3>
+                <div class="products" id="accessory-list"></div>
+            </div>
+            
+            <div class="category">
+                <h3>Supplements to Consider</h3>
+                <div class="products" id="supplement-list"></div>
+                <p style="font-size: 12px; margin-top: 10px; color: #666;">*Consult with a healthcare professional before taking any supplements.</p>
+            </div>
+        </div>
+
+        <div class="recommendation">
+            <h2>Recommended Yoga & Meditation</h2>
+            <div class="videos" id="video-list"></div>
+        </div>
+
+        <a href="quiz.html" class="back-btn">Take Another Quiz</a>
+        <a href="product.html" class="back-btn" style="margin-left: 10px; background-color: #ff9800;">Browse All Products</a>
+    </div>
+
+    <script>
+        let quizResult = localStorage.getItem("quizResult") || "moderate-depression"; // Default to moderate if no result
+        let resultText = "";
+        let severityLabel = document.createElement("div");
+        let books = [];
+        let selfcareTools = [];
+        let accessories = [];
+        let supplements = [];
+        let videos = [];
+
+        if (quizResult === "mild-depression") {
+            resultText = "Your quiz results indicate mild low mood symptoms. Here are some mood-enhancing tools that may help you:";
+            severityLabel.classList.add("severity-label", "mild");
+            severityLabel.innerText = "Mild Low Mood";
+
+            books = [
+                { name: "Feeling Good by David D. Burns", link: "https://amzn.in/d/6b5BpJK", price: "₹799" },
+                { name: "The Upward Spiral by Alex Korb", link: "https://amzn.in/d/eIyX52e", price: "₹1,304" }
+            ];
+
+            selfcareTools = [
+                { name: "Gratitude Journal", link: "https://amzn.in/d/aJsj3wF", price: "₹329" },
+                { name: "Self-Compassion Journal", link: "https://amzn.in/d/aZ5ovkN", price: "₹499" }
+            ];
+
+            accessories = [
+                { name: "Happy Light Therapy Lamp", link: "https://amzn.in/d/5mwzkbW", price: "₹1,499" },
+                { name: "Essential Oil Diffuser", link: "https://amzn.in/d/4n84t5Q", price: "₹799" }
+            ];
+
+            supplements = [
+                { name: "Vitamin D3", link: "https://amzn.in/d/8TkICMp", price: "₹599" },
+                { name: "B-Complex Vitamins", link: "https://amzn.in/d/55dRQYm", price: "₹399" }
+            ];
+
+            videos = [
+                { name: "Mood-Boosting Morning Routine", link: "yoga.html" },
+                { name: "Gentle Yoga for Depression", link: "yoga.html" }
+            ];
+        } else if (quizResult === "moderate-depression") {
+            resultText = "Your quiz results suggest moderate depression symptoms. These mood-boosting tools are tailored to help with your symptoms:";
+            severityLabel.classList.add("severity-label", "moderate");
+            severityLabel.innerText = "Moderate Depression";
+
+            books = [
+                { name: "The Mindful Way Through Depression", link: "https://amzn.in/d/f8c9ybY", price: "₹1,479" },
+                { name: "Lost Connections by Johann Hari", link: "https://amzn.in/d/a0C3YdT", price: "₹399" },
+                { name: "Mind Over Mood by Dennis Greenberger", link: "https://amzn.in/d/c9pF9mw", price: "₹2,078" }
+            ];
+
+            selfcareTools = [
+                { name: "CBT Workbook for Depression", link: "https://amzn.in/d/c11qyHb", price: "₹1,599" },
+                { name: "Self-Care Planner", link: "https://amzn.in/d/1kMOp8h", price: "₹549" },
+                { name: "Mood Tracker Journal", link: "https://amzn.in/d/8qILfmU", price: "₹499" }
+            ];
+
+            accessories = [
+                { name: "Sunrise Alarm Clock", link: "https://amzn.in/d/3R8LdUt", price: "₹1,499" },
+                { name: "Weighted Blanket", link: "https://amzn.in/d/0Bx0RPV", price: "₹1,699" },
+                { name: "Aromatherapy Set", link: "https://amzn.in/d/gkA8xQs", price: "₹599" }
+            ];
+
+            supplements = [
+                { name: "Omega-3 Fish Oil", link: "https://amzn.in/d/98SgDvK", price: "₹1,407" },
+                { name: "Ashwagandha", link: "https://amzn.in/d/1x1U9Ht", price: "₹702" }
+            ];
+
+            videos = [
+                { name: "Depression Management Meditation", link: "yoga.html" },
+                { name: "Nature Connection Practice", link: "yoga.html" },
+                { name: "Energy-Boosting Movement", link: "yoga.html" }
+            ];
+        } else if (quizResult === "severe-depression") {
+            resultText = "Your quiz results indicate significant depression symptoms. These comprehensive solutions are specifically chosen to address your needs:";
+            severityLabel.classList.add("severity-label", "severe");
+            severityLabel.innerText = "Significant Depression";
+
+            books = [
+                { name: "Feeling Good by David D. Burns", link: "https://amzn.in/d/6b5BpJK", price: "₹799" },
+                { name: "The Depression Cure by Stephen Ilardi", link: "https://amzn.in/d/9UXuQeD", price: "₹1,254" },
+                { name: "Undoing Depression by Richard O'Connor", link: "https://amzn.in/d/eT9NLFc", price: "₹1,323" }
+            ];
+
+            selfcareTools = [
+                { name: "Complete Depression Recovery Workbook", link: "https://amzn.in/d/fmvvFBz", price: "₹1,999" },
+                { name: "Daily Wellness Journal", link: "https://amzn.in/d/8mjmYTC", price: "₹699" },
+                { name: "Emotional Support Card Deck", link: "https://amzn.in/d/gGwAMoJ", price: "₹899" }
+            ];
+
+            accessories = [
+                { name: "Professional Light Therapy Box", link: "https://amzn.in/d/6BZQRzK", price: "₹3,999" },
+                { name: "Premium Weighted Blanket", link: "https://amzn.in/d/6YCN4uR", price: "₹3,299" },
+                { name: "Acupressure Mat Set", link: "https://amzn.in/d/1Ck8vbw", price: "₹1,399" }
+            ];
+
+            supplements = [
+                { name: "SAM-e Supplement", link: "https://amzn.in/d/2koDYDu", price: "₹2,499" },
+                { name: "5-HTP", link: "https://amzn.in/d/iN9pjMf", price: "₹1,099" },
+                { name: "Vitamin D3 + K2", link: "https://amzn.in/d/7e2vCv3", price: "₹499" }
+            ];
+
+            videos = [
+                { name: "Daily Depression Recovery Protocol", link: "yoga.html" },
+                { name: "Deep Relaxation Practice", link: "yoga.html" },
+                { name: "Morning Motivation Ritual", link: "yoga.html" },
+                { name: "Self-Compassion Meditation", link: "yoga.html" }
+            ];
+        }
+
+        // Add severity indicator
+        document.getElementById("severity-indicator").appendChild(severityLabel);
+        document.getElementById("result-text").innerText = resultText;
+        
+        // Function to create and populate product items
+        function populateList(listId, products) {
+            let list = document.getElementById(listId);
+            products.forEach(product => {
+                let item = document.createElement("div");
+                item.classList.add("item");
+                item.innerHTML = `
+                    <div class="item-info">
+                        <a href="${product.link}" target="_blank">${product.name}</a>
+                    </div>
+                    <span class="price">${product.price}</span>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        // Populate all lists
+        populateList("book-list", books);
+        populateList("selfcare-list", selfcareTools);
+        populateList("accessory-list", accessories);
+        populateList("supplement-list", supplements);
+        
+        // Populate videos
+        let videoList = document.getElementById("video-list");
+        videos.forEach(video => {
+            let item = document.createElement("div");
+            item.classList.add("item");
+            item.innerHTML = `<a href="${video.link}">${video.name}</a>`;
+            videoList.appendChild(item);
+        });
+    </script>
+</body>
+</html>

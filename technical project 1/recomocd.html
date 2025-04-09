@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized OCD Recommendations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #e8f5e9;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-image: url('images/bg3.avif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .container {
+            max-width: 800px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+        h1 {
+            color: #ff9800;
+        }
+        .recommendation {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #f1f8e9;
+        }
+        .category {
+            margin-top: 15px;
+            background-color: #e0f2f1;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .category h3 {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+        .products, .videos {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .item {
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .item-info {
+            text-align: left;
+        }
+        .item a {
+            text-decoration: none;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+        .price {
+            color: #ff9800;
+            font-weight: bold;
+        }
+        .back-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #2e7d32;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .back-btn:hover {
+            background-color: #1b5e20;
+        }
+        .severity-label {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            color: white;
+            font-weight: bold;
+        }
+        .mild {
+            background-color: #8bc34a;
+        }
+        .moderate {
+            background-color: #ffa726;
+        }
+        .severe {
+            background-color: #ef5350;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Personalized OCD Recommendations</h1>
+        <p id="severity-indicator"></p>
+        <p id="result-text"></p>
+
+        <div class="recommendation">
+            <div class="category">
+                <h3>Recommended Books</h3>
+                <div class="products" id="book-list"></div>
+            </div>
+            
+            <div class="category">
+                <h3>Journaling Tools</h3>
+                <div class="products" id="journal-list"></div>
+            </div>
+            
+            <div class="category">
+                <h3>Helpful Accessories</h3>
+                <div class="products" id="accessory-list"></div>
+            </div>
+            
+            <div class="category">
+                <h3>Supplements to Consider</h3>
+                <div class="products" id="supplement-list"></div>
+                <p style="font-size: 12px; margin-top: 10px; color: #666;">*Consult with a healthcare professional before taking any supplements.</p>
+            </div>
+        </div>
+
+        <div class="recommendation">
+            <h2>Recommended Yoga & Meditation</h2>
+            <div class="videos" id="video-list"></div>
+        </div>
+
+        <a href="quiz.html" class="back-btn">Take Another Quiz</a>
+        <a href="product.html" class="back-btn" style="margin-left: 10px; background-color: #ff9800;">Browse All Products</a>
+    </div>
+
+    <script>
+        let quizResult = localStorage.getItem("quizResult") || "moderate-ocd"; // Default to moderate if no result
+        let resultText = "";
+        let severityLabel = document.createElement("div");
+        let books = [];
+        let journals = [];
+        let accessories = [];
+        let supplements = [];
+        let videos = [];
+
+        if (quizResult === "mild-ocd") {
+            resultText = "You show signs of mild OCD. These resources can help manage and redirect intrusive thoughts.";
+            severityLabel.classList.add("severity-label", "mild");
+            severityLabel.innerText = "Mild OCD Tendencies";
+
+            books = [
+                { name: "Atomic Habits by James Clear", link: "https://amzn.in/d/eyrR8Rp", price: "₹673" },
+                { name: "The DOSE Effect by T. J. Power", link: "https://amzn.in/d/ax0Q9VA", price: "₹259" }
+            ];
+
+            journals = [
+                { name: "Daily Gratitude Journal", link: "https://amzn.in/d/8O0xaRy", price: "₹301" },
+                { name: "Mindfulness Journal", link: "https://amzn.in/d/55s2gpB", price: "₹407" }
+            ];
+
+            accessories = [
+                { name: "Stress Ball", link: "https://amzn.in/d/ehf8ABH", price: "₹29" },
+                { name: "Aromatherapy Diffuser", link: "https://amzn.in/d/iKg20hv", price: "₹599" }
+            ];
+
+            supplements = [
+                { name: "Vitamin C Tablets", link: "https://amzn.in/d/2ug0uao", price: "₹36" },
+                { name: "Calcium & Vitamin D3", link: "https://amzn.in/d/4bISHUG", price: "₹349" }
+            ];
+
+            videos = [
+                { name: "5-Minute Grounding Meditation", link: "yoga.html" },
+                { name: "Intro to Mindful Breathing", link: "yoga.html" }
+            ];
+        } else if (quizResult === "moderate-ocd") {
+            resultText = "You may be experiencing moderate OCD symptoms. Try these products and practices to ease anxiety and regain control.";
+            severityLabel.classList.add("severity-label", "moderate");
+            severityLabel.innerText = "Moderate OCD Symptoms";
+
+            books = [
+                { name: "30 DAYS: Change your habits", link: "https://amzn.in/d/huE8tBq", price: "₹210" },
+                { name: "Energize Your Mind by Gaur Gopal Das", link: "https://amzn.in/d/5DrGum8", price: "₹209" }
+            ];
+
+            journals = [
+                { name: "Anxiety Journal", link: "https://amzn.in/d/6TtZX8u", price: "₹407" },
+                { name: "3-Min Positivity Journal", link: "https://amzn.in/d/izXjmHE", price: "₹343" }
+            ];
+
+            accessories = [
+                { name: "Fidget Spinner", link: "https://amzn.in/d/eQaJWxF", price: "₹499" },
+                { name: "Anti Stress Toy", link: "https://amzn.in/d/1VmMxFM", price: "₹149" },
+                { name: "Night Lamp", link: "https://amzn.in/d/6mHk27J", price: "₹499" }
+            ];
+
+            supplements = [
+                { name: "Tata Brain Formula", link: "https://amzn.in/d/cfxLzOM", price: "₹499" },
+                { name: "Arth Anti-Anxiety", link: "https://amzn.in/d/2kSEJAl", price: "₹279" }
+            ];
+
+            videos = [
+                { name: "Mindful Body Scan for OCD", link: "yoga.html" },
+                { name: "Breathing Techniques to Calm Obsessions", link: "yoga.html" }
+            ];
+        } else if (quizResult === "severe-ocd") {
+            resultText = "Your results suggest strong OCD symptoms. These tools may provide relief and support your healing process.";
+            severityLabel.classList.add("severity-label", "severe");
+            severityLabel.innerText = "Severe OCD Symptoms";
+
+            books = [
+                { name: "The Body Keeps the Score", link: "https://amzn.in/d/i0odX6Y", price: "₹501" },
+                { name: "Change Your Diet, Change Your Mind", link: "https://amzn.in/d/1FxDOyY", price: "₹1664" },
+                { name: "Brain Energy", link: "https://amzn.in/d/3F4C6l3", price: "₹1995" }
+            ];
+
+            journals = [
+                { name: "Self Care Journal", link: "https://amzn.in/d/9vkgwM5", price: "₹917" },
+                { name: "Create your own calm Journal", link: "https://amzn.in/d/gIBuhMh", price: "₹912" },
+                { name: "Feelings Journal", link: "https://www.oddgiraffe.com/products/feel-all-the-feelings-4", price: "₹799" }
+            ];
+
+            accessories = [
+                { name: "Squishy Toys", link: "https://amzn.in/d/d6wH24G", price: "₹442" },
+                { name: "Bath Bombs", link: "https://amzn.in/d/0AjGvy6", price: "₹399" },
+                { name: "Shower Steamers", link: "https://amzn.in/d/8XP0Uxs", price: "₹399" }
+            ];
+
+            supplements = [
+                { name: "Ashwagandha", link: "https://amzn.in/d/1x1U9Ht", price: "₹702" },
+                { name: "Himalaya Mentat", link: "https://amzn.in/d/eKjAZis", price: "₹380" },
+                { name: "Omega Supplement", link: "https://amzn.in/d/98SgDvK", price: "₹1407" }
+            ];
+
+            videos = [
+                { name: "OCD Meditation: Acceptance", link: "yoga.html" },
+                { name: "Yoga for Overactive Thoughts", link: "yoga.html" },
+                { name: "Guided Meditation for Mental Clarity", link: "yoga.html" }
+            ];
+        }
+
+        // Add severity indicator
+        document.getElementById("severity-indicator").appendChild(severityLabel);
+        document.getElementById("result-text").innerText = resultText;
+        
+        // Function to create and populate product items
+        function populateList(listId, products) {
+            let list = document.getElementById(listId);
+            products.forEach(product => {
+                let item = document.createElement("div");
+                item.classList.add("item");
+                item.innerHTML = `
+                    <div class="item-info">
+                        <a href="${product.link}" target="_blank">${product.name}</a>
+                    </div>
+                    <span class="price">${product.price}</span>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        // Populate all lists
+        populateList("book-list", books);
+        populateList("journal-list", journals);
+        populateList("accessory-list", accessories);
+        populateList("supplement-list", supplements);
+        
+        // Populate videos
+        let videoList = document.getElementById("video-list");
+        videos.forEach(video => {
+            let item = document.createElement("div");
+            item.classList.add("item");
+            item.innerHTML = `<a href="${video.link}">${video.name}</a>`;
+            videoList.appendChild(item);
+        });
+    </script>
+</body>
+</html>
