@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans bg-gray-100">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            
+            background-size: cover; /* Cover the entire area */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-position: center; /* Center the image */
+        }
+        
+        /* Top Bar */
+        .top-bar {
+            background-color: darkgreen; /* Slightly transparent for better visibility */
+            color: white;
+            text-align: center;
+            padding: 8px;
+            border-radius: 0 0 20px 20px;
+        }
+        nav ul li a:hover {
+            color: white;
+            background-color: #66bb6a; /* Light green on hover */
+        }
+        
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 15px 50px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            margin: 10px;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 80px;
+            width: auto;
+        }
+        
+        .logo-text {
+            font-size: 24px; /* Smaller font size */
+            font-weight: 600;
+            color: #ff9800; /* Orange for the main name */
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px; /* Reduced gap */
+        }
+        nav ul li {
+            position: relative;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #ff9800; /* Orange for navigation links */
+            font-size: 16px; /* Smaller font size */
+            font-weight: 400;
+            transition: color 0.3s ease;
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+        
+        nav ul li a:hover {
+            color: #f57c00;
+            background-color: #fbe9e7;
+        }
+       
+      .hero .overlay {
+      position: absolute;
+      inset: 0;
+      background-color: #0b040480;
+    }
+
+      .product-card {
+        background-color: rgb(233, 229, 223);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        height: auto;
+        margin-right: 100px;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        
+      }
+      
+      .product-card img {
+        width: 100%;
+        height: 12rem;
+        object-fit: cover;
+      }
+    </style>
+  <header>
+    <centre>
+      <div class="top-bar">Your Journey to Mental Clarity Begins Here</div>
+        
+          <nav>
+            <div class="nav-left">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Mind Oasis Logo">
+                </div>
+                <div class="logo-text">Mind Oasis</div>
+            </div>
+            <ul>
+              <li><a href="main.html">Home</a></li>
+              <li><a href="product.html">Products</a></li>
+              <li><a href="quiz.html">Quiz</a></li>
+              <li><a href="write.html">Your Thoughts</a></li>
+              <li><a href="yoga.html">Videos</a></li>
+              <li><a href="podcast.html">Podcast</a></li>
+              <li><a href="contacts.html">Contacts</a></li>
+              <li><a href="#">More</a></li>
+            </ul>
+        </nav>
+           
+    </header>
+
+        <section class="py-12">
+            <div class="container mx-auto px-4">  
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6"> 
+            <div class="product-card">
+                <a href="https://youtu.be/G0P2L1BbkP0?si=IDdBejTnmqgGFhIt">
+              <img src="podcast/Anxiety Toolkit.avif"  alt="Journal" width="200" height="300">
+            </a>
+              <div class="p-4">
+              <h3 class="text-lg font-semibold mb-2"><a href="https://youtu.be/G0P2L1BbkP0?si=IDdBejTnmqgGFhIt" class="hover:underline">Anxiety Toolkit: Understanding Its Effects On Your Mind and Body | The Mel Robbins Podcast</h3></a>
+              
+              
+            </div>
+          </div>
+          <div class="product-card">
+            <a href="https://youtu.be/9EqrUK7ghho?si=F5HErsFWTe0Je72T">
+            <img src="podcast/stress expert.avif" alt="Journal"width="100" height="100">
+        </a>
+            <div class="p-4">
+              <h3 class="text-lg font-semibold mb-2"><a href="https://youtu.be/9EqrUK7ghho?si=F5HErsFWTe0Je72T" class="hover:underline">The Stress Expert: Your Brain is Like a Phone Battery! (9 Ways to Instantly Recharge)</h3></a>
+       
+          
+        </div>
+      </div>
+      <div class="product-card">
+        <a href="https://youtu.be/Bzfv-dHsmoY?si=ZKW6m1SJssiK5qxJ">
+        <img src="podcast/overthinking.webp" alt="Journal"width="100" height="100">
+    </a>
+        <div class="p-4">
+          <h3 class="text-lg font-semibold mb-2"><a href="https://youtu.be/Bzfv-dHsmoY?si=ZKW6m1SJssiK5qxJ" class="hover:underline">How to stop overthinking</h3></a>
+   
+      
+    </div>
+  </div>
+  <div class="product-card">
+    <a href="https://youtu.be/Xu1FMCxoEFc?si=KiYa7Mdb9RxQNNu7">
+    <img src="podcast/depression.png" alt="Journal"width="100" height="100">
+</a>
+    <div class="p-4">
+      <h3 class="text-lg font-semibold mb-2"><a href="https://youtu.be/Xu1FMCxoEFc?si=KiYa7Mdb9RxQNNu7" class="hover:underline">Understanding & Conquering Depression</h3></a>
+
+  
+</div>
+</div>
+<div class="product-card">
+    <a href="https://youtu.be/2ES_kat512E?si=K_KVD7aVgrxsIBgl">
+    <img src="podcast/mood swings.avif" alt="Journal"width="100" height="100">
+</a>
+    <div class="p-4">
+      <h3 class="text-lg font-semibold mb-2"><a href="https://youtu.be/2ES_kat512E?si=K_KVD7aVgrxsIBgl" class="hover:underline">Mood swings & rage: How PERIMENOPAUSE affects us even in your 20s! | Hush Podcast</h3></a>
+
+  
+</div>
+</div>
+        
+<div class="product-card">
+    <a href="https://youtu.be/m_OazsImOiI?si=i3SML87QdrwD6YNz">
+    <img src="podcast/bipolar.png" alt="Journal"width="100" height="100">
+</a>
+    <div class="p-4">
+      <h3 class="text-lg font-semibold mb-2"><a href="https://youtu.be/m_OazsImOiI?si=i3SML87QdrwD6YNz" class="hover:underline">The Science & Treatment of Bipolar Disorder | Huberman Lab Podcast</h3></a>
+
+  
+</div>
+</div>
+<div class="product-card">
+    <a href="https://youtu.be/MFyEwdpC5pM?si=FGxlivLxZzDbSK6v">
+    <img src="podcast/understanding sadness.avif" alt="Journal"width="100" height="100">
+</a>
+    <div class="p-4">
+      <h3 class="text-lg font-semibold mb-2"><a href="https://youtu.be/MFyEwdpC5pM?si=FGxlivLxZzDbSK6v" class="hover:underline">Dr. Samir Parikh - Understanding Sadness, Anxiety, Depression & ADHD | The Ranveer Show</h3></a>
+
+  
+</div>
+</div>
+      
+<div class="product-card">
+    <a href="https://youtu.be/0R0xhDNPfwU?si=Eu4c8VvFnBkUBPB9">
+    <img src="podcast/adhd.avif" alt="Journal"width="100" height="100">
+</a>
+    <div class="p-4">
+      <h3 class="text-lg font-semibold mb-2"><a href="https://youtu.be/0R0xhDNPfwU?si=Eu4c8VvFnBkUBPB9" class="hover:underline">The TRUTH About ADHD in Adults | The Mel Robbins Podcast</h3></a>
+
+  
+</div>
+</div>
+<div class="product-card">
+    <a href="https://youtu.be/kNOX7a7-kwQ?si=k06q71WjaRLIDmqH">
+    <img src="podcast/focus.avif" alt="Journal"width="100" height="100">
+</a>
+    <div class="p-4">
+      <h3 class="text-lg font-semibold mb-2"><a href="https://youtu.be/kNOX7a7-kwQ?si=k06q71WjaRLIDmqH" class="hover:underline">How To Fix Your Focus & Stop Procrastinating: Johann Hari</h3></a>
+
+  
+</div>
+</div>
+<div class="product-card">
+    <a href="https://youtu.be/kNOX7a7-kwQ?si=k06q71WjaRLIDmqH">
+    <img src="podcast/change your brain.avif" alt="Journal"width="100" height="100">
+</a>
+    <div class="p-4">
+      <h3 class="text-lg font-semibold mb-2"><a href="https://youtu.be/kNOX7a7-kwQ?si=k06q71WjaRLIDmqH" class="hover:underline">BRAIN HEALTH EXPERT: Change Your Brain, Change Your Life | Dr. Daniel Amen X Rich Roll Podcast</h3></a>
+
+  
+</div>
+</div>
+<div class="product-card">
+    <a href="https://youtu.be/d7sUWwHugg8?si=AB064boR8z6_qCNu">
+    <img src="podcast/success.png" alt="Journal"width="100" height="100">
+</a>
+    <div class="p-4">
+      <h3 class="text-lg font-semibold mb-2"><a href="https://youtu.be/d7sUWwHugg8?si=AB064boR8z6_qCNu" class="hover:underline">Dr. Joe Dispenza ON: How To BRAINWASH Yourself For Success & Destroy NEGATIVE THOUGHTS!</h3></a>
+
+  
+</div>
+</div>
+  
+<div class="product-card">
+    <a href="https://youtu.be/OadokY8fcAA?si=H8pWJC7orbt6osar">
+    <img src="podcast/ocd.png" alt="Journal"width="100" height="100">
+</a>
+    <div class="p-4">
+      <h3 class="text-lg font-semibold mb-2"><a href="https://youtu.be/OadokY8fcAA?si=H8pWJC7orbt6osar" class="hover:underline">The Science & Treatment of Obsessive Compulsive Disorder (OCD) | Huberman Lab Podcast</h3></a>
+
+  
+</div>
+</div>
+<div class="product-card">
+    <a href="https://youtu.be/4RFEkGKKhdE?si=VWx1DFSKHH9OxcQX">
+    <img src="podcast/ptsd.png" alt="Journal"width="100" height="100">
+</a>
+    <div class="p-4">
+      <h3 class="text-lg font-semibold mb-2"><a href="https://youtu.be/4RFEkGKKhdE?si=VWx1DFSKHH9OxcQX" class="hover:underline">How to Heal From Post-Traumatic Stress Disorder (PTSD) | Dr. Victor Carrión</h3></a>
+
+  
+</div>
+</div>
+  
+
+
+        
+    </centre>
+ 
+
+</body>
+</html>
