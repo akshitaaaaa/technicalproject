@@ -267,36 +267,48 @@
     </section>
 
     <script>
-        document.getElementById("anxietyForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            let responses = document.querySelectorAll("input[type=radio]:checked");
-            
-            // Check if at least one response is selected
-            if (responses.length === 0) {
-                alert("Please select at least one option before submitting.");
-                return; // Exit the function if no options are selected
-            }
+       document.getElementById("anxietyForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    let responses = document.querySelectorAll("input[type=radio]:checked");
     
-            let score = 0;
-            
-            responses.forEach(response => {
-                score += parseInt(response.value);
-            });
-            
-            let resultText = "";
-            if (score <= 10) {
-                resultText = "You experience minimal anxiety.";
-            } else if (score <= 20) {
-                resultText = "You may have mild anxiety.";
-            } else if (score <= 30) {
-                resultText = "You may have moderate anxiety.";
-            } else {
-                resultText = "You may have severe anxiety. Consider reaching out for support.";
-            }
-            
-            document.getElementById("result").innerHTML = `<h3>Your Results:</h3><p>${resultText}</p>`;
-            document.getElementById("result").style.display = 'block'; // Show the result
-        });
+    // Check if at least one response is selected
+    if (responses.length === 0) {
+        alert("Please select at least one option before submitting.");
+        return; // Exit the function if no options are selected
+    }
+
+    let score = 0;
+    
+    responses.forEach(response => {
+        score += parseInt(response.value);
+    });
+    
+    let resultText = "";
+    let resultCategory = "";
+
+    if (score <= 10) {
+        resultText = "You experience minimal anxiety.";
+        resultCategory = "mild-anxiety";
+    } else if (score <= 20) {
+        resultText = "You may have mild anxiety.";
+        resultCategory = "moderate-anxiety";
+    } else if (score <= 30) {
+        resultText = "You may have moderate anxiety.";
+        resultCategory = "severe-anxiety";
+    } else {
+        resultText = "You may have severe anxiety. Consider reaching out for support.";
+        resultCategory = "severe-anxiety";
+    }
+    
+    document.getElementById("result").innerHTML = `<h3>Your Results:</h3><p>${resultText}</p>`;
+    document.getElementById("result").style.display = 'block'; // Show the result
+    
+    // Store the result in local storage and redirect
+    localStorage.setItem("quizResult", resultCategory);
+    setTimeout(() => {
+        window.location.href = "recomanxiety.html";
+    }, 3000);
+});
     </script>
 </body>
 </html>

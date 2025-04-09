@@ -285,35 +285,49 @@
 
     <script>
         document.getElementById("moodForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            let responses = document.querySelectorAll("input[type=radio]:checked");
-            
-            // Check if at least one response is selected
-            if (responses.length === 0) {
-                alert("Please select at least one option before submitting.");
-                return; // Exit the function if no options are selected
-            }
+    event.preventDefault();
+    let responses = document.querySelectorAll("input[type=radio]:checked");
     
-            let score = 0;
-            
-            responses.forEach(response => {
-                score += parseInt(response.value);
-            });
-            
-            let resultText = "";
-            if (score <= 10) {
-                resultText = "You experience minimal mood-related difficulties.";
-            } else if (score <= 20) {
-                resultText = "You may have mild mood-related difficulties.";
-            } else if (score <= 30) {
-                resultText = "You may have moderate mood-related difficulties.";
-            } else {
-                resultText = "You may have severe mood-related difficulties. Consider reaching out for support.";
-            }
-            
-            document.getElementById("result").innerHTML = `<h3>Your Results:</h3><p>${resultText}</p>`;
-            document.getElementById("result").style.display = 'block'; // Show the result
-        });
+    // Check if at least one response is selected
+    if (responses.length === 0) {
+        alert("Please select at least one option before submitting.");
+        return; // Exit the function if no options are selected
+    }
+
+    let score = 0;
+    
+    responses.forEach(response => {
+        score += parseInt(response.value);
+    });
+    
+    let resultText = "";
+    let resultCategory = "";
+    
+    if (score <= 10) {
+        resultText = "You experience minimal mood-related difficulties.";
+        resultCategory = "mild-bipolar";
+    } else if (score <= 20) {
+        resultText = "You may have mild mood-related difficulties.";
+        resultCategory = "mild-bipolar";
+    } else if (score <= 30) {
+        resultText = "You may have moderate mood-related difficulties.";
+        resultCategory = "moderate-bipolar";
+    } else {
+        resultText = "You may have severe mood-related difficulties. Consider reaching out for support.";
+        resultCategory = "severe-bipolar";
+    }
+    
+    // Display the result
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `<h3>Your Results:</h3><p style="color: #333;">${resultText}</p>`;
+    resultDiv.style.display = 'block'; // Show the result div
+    
+    // Store the result in local storage and redirect
+    localStorage.setItem("quizResult", resultCategory);
+    setTimeout(() => {
+        window.location.href = "recombipolar.html";
+    }, 3000);
+});
     </script>
 </body>
 </html>

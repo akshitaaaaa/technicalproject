@@ -279,37 +279,49 @@
 
     <script>
         document.getElementById("depressionForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            let responses = document.querySelectorAll("input[type=radio]:checked");
-            
-            // Check if at least one response is selected
-            if (responses.length === 0) {
-                alert("Please select at least one option before submitting.");
-                return; // Exit the function if no options are selected
-            }
+    event.preventDefault();
+    let responses = document.querySelectorAll("input[type=radio]:checked");
+    
+    // Check if at least one response is selected
+    if (responses.length === 0) {
+        alert("Please select at least one option before submitting.");
+        return; // Exit the function if no options are selected
+    }
 
-            let score = 0;
-            
-            responses.forEach(response => {
-                score += parseInt(response.value);
-            });
-            
-            let resultText = "";
-            if (score <= 5) {
-                resultText = "You have minimal or no depression. Keep up the good work!";
-            } else if (score <= 10) {
-                resultText = "You may be experiencing mild depression. Consider talking to someone about how you feel.";
-            } else if (score <= 15) {
-                resultText = "You may be experiencing moderate depression. It might be helpful to reach out for support.";
-            } else {
-                resultText = "You may be experiencing severe depression. Please consider seeking professional help.";
-            }
+    let score = 0;
+    
+    responses.forEach(response => {
+        score += parseInt(response.value);
+    });
+    
+    let resultText = "";
+    let resultCategory = "";
+    
+    if (score <= 5) {
+        resultText = "You have minimal or no depression. Keep up the good work!";
+        resultCategory = "mild-depression";
+    } else if (score <= 10) {
+        resultText = "You may be experiencing mild depression. Consider talking to someone about how you feel.";
+        resultCategory = "moderate-depression";
+    } else if (score <= 15) {
+        resultText = "You may be experiencing moderate depression. It might be helpful to reach out for support.";
+        resultCategory = "moderate-depression";
+    } else {
+        resultText = "You may be experiencing severe depression. Please consider seeking professional help.";
+        resultCategory = "severe-depression";
+    }
 
-            // Display the result
-            const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = `<h3>Your Results:</h3><p style="color: #333;">${resultText}</p>`;
-            resultDiv.style.display = 'block'; // Show the result div
-        });
+    // Display the result
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `<h3>Your Results:</h3><p style="color: #333;">${resultText}</p>`;
+    resultDiv.style.display = 'block'; // Show the result div
+    
+    // Store the result in local storage and redirect
+    localStorage.setItem("quizResult", resultCategory);
+    setTimeout(() => {
+        window.location.href = "recomdepression.html";
+    }, 3000);
+});
     </script>
 </body>
 </html>

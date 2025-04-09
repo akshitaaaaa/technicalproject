@@ -3,34 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mind Oasis - OCD Survey</title>
+    <title>Obsessive-Compulsive Disorder Survey</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body, html {
             margin: 0;
             padding: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: #e8f5e9; /* Light green background */
-            background-image: url('images/bg3.avif'); /* Add your background image here */
-            background-size: cover; /* Cover the entire page */
-            background-position: center; /* Center the background image */
-            height: 100vh; /* Full height */
+            background-color: #e8f5e9;
+            background-image: url('images/bg3.avif');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
             display: flex;
             flex-direction: column;
         }
         .top-bar {
-            background-color: rgba(46, 125, 50, 0.8); /* Dark green with transparency */
+            background-color: rgba(46, 125, 50, 0.8);
             color: white;
             text-align: center;
             padding: 8px;
             border-radius: 0 0 20px 20px;
-            font-size: 14px; /* Smaller text size */
+            font-size: 14px;
         }
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: rgba(255, 255, 255, 0.9); /* White with transparency */
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 15px 50px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 20px;
@@ -42,26 +42,26 @@
             gap: 10px;
         }
         .logo img {
-            height: 70px; /* Slightly smaller logo */
+            height: 70px;
             width: auto;
         }
         .logo-text {
-            font-size: 24px; /* Smaller font size */
+            font-size: 24px;
             font-weight: 600;
-            color: #ff9800; /* Orange for the main name */
+            color: #ff9800;
         }
         nav ul {
             list-style: none;
             display: flex;
-            gap: 15px; /* Reduced gap */
+            gap: 15px;
         }
         nav ul li {
             position: relative;
         }
         nav ul li a {
             text-decoration: none;
-            color: #ff9800; /* Orange for navigation links */
-            font-size: 16px; /* Smaller font size */
+            color: #ff9800;
+            font-size: 16px;
             font-weight: 400;
             transition: color 0.3s ease;
             border-radius: 10px;
@@ -69,10 +69,10 @@
         }
         nav ul li a:hover {
             color: white;
-            background-color: #66bb6a; /* Light green on hover */
+            background-color: #66bb6a;
         }
         .section {
-            background-color: rgba(255, 255, 255, 0.9); /* White with transparency */
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 20px;
             margin: 20px;
             padding: 20px;
@@ -80,39 +80,39 @@
             text-align: center;
         }
         .section h2 {
-            color: #ff9800; /* Orange for section headings */
-            font-size: 28px; /* Smaller heading size */
+            color: #ff9800;
+            font-size: 28px;
             margin-bottom: 10px;
         }
         .section p {
             color: #333;
-            font-size: 16px; /* Smaller paragraph size */
-            line-height: 1.4; /* Adjusted line height */
+            font-size: 16px;
+            line-height: 1.4;
             margin-bottom: 20px;
         }
         .quiz-questions {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px; /* Space between questions */
-            text-align: left; /* Align text to the left */
-            width: 100%; /* Full width */
+            gap: 15px;
+            text-align: left;
+            width: 100%;
         }
         .quiz-question {
-            width: 100%; /* Full width for questions */
+            width: 100%;
         }
         .quiz-question label {
-            display: block; /* Block display for labels */
-            margin-bottom: 5px; /* Space between label and options */
-            font-weight: bold; /* Bold for question labels */
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
         }
         .quiz-options {
             display: flex;
-            flex-direction: column; /* Stack options vertically */
-            gap: 5px; /* Space between options */
+            flex-direction: column;
+            gap: 5px;
         }
         .quiz-options input[type="radio"] {
-            margin-right: 10px; /* Space between radio button and label */
+            margin-right: 10px;
         }
         button {
             background-color: #2e7d32;
@@ -131,13 +131,10 @@
         }
         .result {
             margin-top: 20px;
-            font-size: 16px;
+            text-align: center;
             font-weight: bold;
-            color: #d32f2f; /* Change the color of the result text */
-            display: none; /* Hidden by default */
-        }
-        .result h3 {
-            color:#d32f2f; /* Change the color of the "Your Results:" heading */
+            color: #d32f2f;
+            display: none;
         }
     </style>
 </head>
@@ -153,31 +150,34 @@
             </div>
             <ul>
                 <li><a href="main.html">Home</a></li>
-                    <li><a href="product.html">Products</a></li>
-                    <li><a href="quiz.html">Quiz</a></li>
-                    <li><a href="write.html">Your Thoughts</a></li>
-                    <li><a href="yoga.html">Videos</a></li>
-                    <li><a href="#">Podcast</a></li>
-                    <li><a href="#">Contacts</a></li>
-                    <li><a href="#">More</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="write.html">Your Thoughts</a></li>
+                <li><a href="yoga.html">Videos</a></li>
+                <li><a href="#">Podcast</a></li>
+                <li><a href="#">Contacts</a></li>
+                <li><a href="#">More</a></li>
             </ul>
         </nav>
     </header>
 
     <section class="section">
         <h2>OCD (Obsessive-Compulsive Disorder) Survey</h2>
-        <p>Take our survey to learn more about your OCD symptoms and identify any potential concerns.</p>
+        <p>Take our survey to assess symptoms related to obsessive thoughts or compulsive behaviors.</p>
         
         <form id="ocdForm">
             <div class="quiz-questions">
+                
                 <div class="quiz-question">
-                    <label>1. Do you experience unwanted, intrusive thoughts that cause distress?</label>
+                    <label>1. How often do you experience repetitive thoughts that feel intrusive and unwanted?</label>
                     <div class="quiz-options">
-                        <label><input type="radio" name="q1" value="2"> Yes</label>
-                        <label><input type="radio" name="q1" value="0"> No</label>
+                        <label><input type="radio" name="q1" value="1"> Never</label>
+                        <label><input type="radio" name="q1" value="2"> Rarely</label>
+                        <label><input type="radio" name="q1" value="3"> Sometimes</label>
+                        <label><input type="radio" name="q1" value="4"> Often</label>
+                        <label><input type="radio" name="q1" value="5"> Very Often</label>
                     </div>
                 </div>
-
                 <div class="quiz-question">
                     <label>2. How often do these intrusive thoughts occur?</label>
                     <div class="quiz-options">
@@ -257,43 +257,53 @@
                     </div>
                 </div>
             </div>
-
-            <button type="button" onclick="calculateResult()">Submit Survey</button>
+            </div>
+            <button type="submit">Submit</button>
         </form>
-
+        
         <div class="result" id="result"></div>
     </section>
 
     <script>
-        function calculateResult() {
-            let score = 0;
-            const questions = [
-                'q1', 'q2', 'q3', 'q4', 'q5', 
-                'q6', 'q7', 'q8', 'q9', 'q10'
-            ];
+        document.getElementById("ocdForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let responses = document.querySelectorAll("input[type=radio]:checked");
 
-            questions.forEach(question => {
-                const selectedOption = document.querySelector(`input[name="${question}"]:checked`);
-                if (selectedOption) {
-                    score += parseInt(selectedOption.value);
-                }
+            if (responses.length === 0) {
+                alert("Please select at least one option before submitting.");
+                return;
+            }
+
+            let score = 0;
+            responses.forEach(response => {
+                score += parseInt(response.value);
             });
 
             let resultText = "";
-            if (score <= 6) {
-                resultText = "You have minimal or no OCD symptoms.";
-            } else if (score <= 12) {
-                resultText = "You may have mild OCD.";
-            } else if (score <= 18) {
-                resultText = "You may have moderate OCD.";
+            let resultCategory = "";
+
+            if (score <= 10) {
+                resultText = "You experience minimal OCD symptoms.";
+                resultCategory = "mild-ocd";
+            } else if (score <= 20) {
+                resultText = "You may have mild OCD tendencies.";
+                resultCategory = "moderate-ocd";
+            } else if (score <= 30) {
+                resultText = "You may have moderate OCD symptoms.";
+                resultCategory = "severe-ocd";
             } else {
-                resultText = "You may have severe OCD. Consider seeking professional help.";
+                resultText = "You may have severe OCD symptoms. Consider seeking support.";
+                resultCategory = "severe-ocd";
             }
 
-            const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = `<h3>Your Results:</h3><p style="color: #333;">${resultText}</p>`;
-            resultDiv.style.display = 'block'; // Show the result div
-        }
+            document.getElementById("result").innerHTML = `<h3>Your Results:</h3><p>${resultText}</p>`;
+            document.getElementById("result").style.display = 'block';
+
+            localStorage.setItem("quizResult", resultCategory);
+            setTimeout(() => {
+                window.location.href = "recomocd.html";
+            }, 3000);
+        });
     </script>
 </body>
 </html>
